@@ -1,0 +1,153 @@
+@import "../css/resets.css";
+@import "../css/variables.css";
+@import "../css/theme.css";
+@import "../css/header.css";
+@import "../css/components.css";
+
+main {
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 75px);
+  text-align: center;
+}
+.centered {
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 75px);
+  justify-content: center;
+}
+h2,
+h1,
+#about-me h3,
+#contacts h3,
+#contacts .container > p {
+  margin-bottom: 1em;
+
+  text-align: center;
+}
+
+details h1,
+details h2,
+details h3 {
+  text-align: left;
+}
+#about-me {
+  margin-top: 4rem;
+}
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+}
+
+#skills {
+  margin-top: 7rem;
+}
+#skills h3 {
+  text-align: center;
+}
+
+footer {
+  background-color: var(--primary-clr);
+  color: var(--secondary-clr);
+  padding-block: 4rem;
+  margin-top: 6rem;
+}
+
+footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+svg:has(.icon) {
+  width: 14px;
+}
+.auto-side-bar {
+  grid-template-columns: none;
+}
+[data-auth="true"] [data-authvisible="false"] {
+  display: none;
+}
+[data-auth="false"] [data-authvisible="true"] {
+  display: none;
+}
+#blogbanner {
+  visibility: hidden;
+}
+
+label[for="blogbanner"] {
+  position: relative;
+}
+
+label[for="blogbanner"]::after {
+  content: attr(data-image);
+  position: absolute;
+  /* inset: 0; */
+  top: 50%;
+  width: 100%;
+  /* height: 100%; */
+  border: 1px solid var(--primary-clr);
+  left: 0;
+  top: 105%;
+  padding: 0.5em 1em;
+  border-radius: 0.4em;
+  display: grid;
+  align-items: center;
+}
+@media screen and (max-width: 675px) {
+  html,
+  body {
+    font-size: 12px;
+  }
+
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .side-bar {
+    position: absolute;
+    transition: 0.4s;
+    background-color: var(--bg-clr);
+    z-index: 4;
+  }
+
+  nav ul {
+    display: none;
+  }
+  nav ul.visible {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--nav-bg-clr);
+    position: absolute;
+    top: 50%;
+    translate: -50% 13%;
+    padding: 2rem;
+    width: 100%;
+    /* text-align: left; */
+    z-index: 2;
+  }
+  #nav-toggler {
+    display: inline;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: 0 -50%;
+    z-index: 7;
+    right: 0;
+    cursor: pointer;
+    width: 30px;
+  }
+  #nav-toggler.nav-active #times {
+    display: block;
+  }
+  #nav-toggler.nav-active #bars {
+    display: none;
+  }
+  #nav-toggler #times {
+    display: none;
+  }
+  #nav-toggler #bars {
+    display: block;
+  }
+}

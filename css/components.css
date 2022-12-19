@@ -1,0 +1,144 @@
+.btn {
+  border: 1px solid var(--primary-clr);
+  border-radius: 7px;
+  padding: 0.2em 1em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--primary-clr);
+  color: var(--secondary-clr);
+}
+.outline {
+  border-color: var(--secondary-clr);
+  margin-top: 1rem;
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.project-grid {
+  margin-top: 4em;
+}
+.card {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  gap: 1.2rem;
+  margin-top: 7rem;
+}
+
+#about-me .card img {
+  max-width: 250px;
+}
+.card img {
+  width: 100%;
+  object-fit: cover;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+.card h3 {
+  text-align: left !important;
+}
+.card-body .active {
+  border-color: var(--primary-clr);
+}
+
+.card-skills {
+  display: grid;
+  background-color: var(--bg-transparent);
+  text-align: center;
+  gap: 2rem;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 7px;
+}
+
+.card-skills .body {
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(70px, auto));
+  gap: 0.5rem;
+}
+
+.card-skills .body img {
+  width: 100%;
+  max-width: 100px;
+  object-fit: contain;
+}
+
+#contacts form {
+  margin-top: 2rem;
+  width: 100%;
+  margin-inline: auto;
+  max-width: 600px;
+  display: grid;
+  gap: 1em;
+}
+.control {
+  display: grid;
+  width: 100%;
+}
+
+.group {
+  display: flex;
+  gap: 1rem;
+}
+#blog span {
+  white-space: nowrap;
+}
+#blog button {
+  color: var(--primary-clr);
+}
+.control input,
+.control textarea,
+#blogEditor,
+#blogTitle {
+  padding: 0.3em 0.5rem;
+  font: inherit;
+  border-color: var(--primary-clr);
+  outline-color: var(--primary-clr);
+  border-radius: 4px;
+  background-color: var(--text-field-bg);
+  border: 1px solid var(--primary-clr);
+  width: 100%;
+}
+
+.control-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  cursor: pointer;
+}
+
+.user-controls {
+  display: flex;
+
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.user-controls .btn {
+  background: none;
+  border-radius: 0.5rem;
+}
+
+td.blog-delete {
+  display: table-cell;
+  overflow: hidden;
+}
+
+section.container table {
+  margin-block: 3em;
+}
+section.container table + h1 {
+  margin-block: 3em;
+}

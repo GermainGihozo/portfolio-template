@@ -1,0 +1,35 @@
+input,
+button {
+  font-size: 18px;
+}
+
+input {
+  color: var(--primary-clr);
+}
+
+#error {
+  text-align: center;
+  color: white;
+  border-radius: 0.4em;
+  margin-inline: auto;
+  background-color: rgb(255, 111, 0);
+  max-width: fit-content;
+  padding: 1em 2em;
+  transition: 0.3s;
+  scale: 0;
+}
+
+.error {
+  scale: 1 !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-3 {
+  margin-top: 1.5em;
+}
+#signup:disabled {
+  cursor: not-allowed;
+}

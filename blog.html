@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" id="theme" data-theme="light" data-auth="false">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/blog.css" />
+    <script src="./app.js" defer type="module"></script>
+    <script src="./js/fetchSingleBlog.js" type="module" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="#" class="logo"
+          ><img src="/resources/logo.png" /> <span>muslim</span></a
+        >
+
+        <nav>
+          <ul class="links">
+            <li><a href="/#">Home</a></li>
+            <li><a href="/#portfolio">work</a></li>
+            <li><a href="/#contacts">contacts</a></li>
+            <li><a href="/#">skills</a></li>
+            <li>
+              <a data-authvisible="false" href="/auth/login.html">login</a>
+              <a data-authvisible="true" href="/auth/logout.html">logout</a>
+            </li>
+          </ul>
+        </nav>
+        <span class="theme-toggler">
+          <div class="theme-swither-active" id="theme-swither">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                id="moon"
+                d="M2.02997 12.42C2.38997 17.57 6.75997 21.76 11.99 21.99C15.68 22.15 18.98 20.43 20.96 17.72C21.78 16.61 21.34 15.87 19.97 16.12C19.3 16.24 18.61 16.29 17.89 16.26C13 16.06 8.99997 11.97 8.97997 7.14002C8.96997 5.84002 9.23997 4.61002 9.72997 3.49002C10.27 2.25002 9.61997 1.66002 8.36997 2.19002C4.40997 3.86002 1.69997 7.85002 2.02997 12.42Z"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                id="sun"
+                d="M12 18.5C13.7239 18.5 15.3772 17.8152 16.5962 16.5962C17.8152 15.3772 18.5 13.7239 18.5 12C18.5 10.2761 17.8152 8.62279 16.5962 7.40381C15.3772 6.18482 13.7239 5.5 12 5.5C10.2761 5.5 8.62279 6.18482 7.40381 7.40381C6.18482 8.62279 5.5 10.2761 5.5 12C5.5 13.7239 6.18482 15.3772 7.40381 16.5962C8.62279 17.8152 10.2761 18.5 12 18.5V18.5Z"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                id="sun"
+                d="M19.14 19.14L19.01 19.01M19.01 4.99L19.14 4.86L19.01 4.99ZM4.86 19.14L4.99 19.01L4.86 19.14ZM12 2.08V2V2.08ZM12 22V21.92V22ZM2.08 12H2H2.08ZM22 12H21.92H22ZM4.99 4.99L4.86 4.86L4.99 4.99Z"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <svg
+              id="circle"
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="36" height="36" rx="18" fill="black" />
+            </svg>
+          </div>
+        </span>
+        <span id="nav-toggler">
+          <svg
+            id="bars"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 7H21M3 12H21M3 17H21"
+              class="icon"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          <svg
+            id="times"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_215_393)">
+              <path
+                d="M3 7L20.5 22.5M27 12H45M4 23L20.5 7"
+                class="icon"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_215_393">
+                <rect width="24" height="24" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </span>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="blog"></div>
+    </div>
+  </body>
+</html>
