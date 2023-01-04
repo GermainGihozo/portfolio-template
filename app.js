@@ -6,8 +6,9 @@ let theme = localStorage.getItem("theme") ?? "light";
 const dashboard = document.querySelector(".dashboard");
 const documentThemeElement = document.querySelector("#theme");
 documentThemeElement.setAttribute("data-theme", theme);
-
-const blogs = JSON.parse(localStorage.getItem("blogs")) ?? [];
+const res = await fetch("http://localhost:3000/api/v1/blogs");
+const blogsData = await res.json();
+const blogs = blogsData.data;
 document.querySelector(".theme-toggler").addEventListener("click", (e) => {
   document
     .querySelector("#theme-swither")
@@ -25,8 +26,9 @@ navBarTogglerIcon.addEventListener("click", () => {
 if (new URL(location.href).pathname === "/") {
   const dashboardSection = document.querySelector("#dashboard");
 
-  document.querySelector(".blogs__element").innerHTML = renderBlogs(blogs);
-  console.log(document.querySelectorAll(".control-item"));
+  document.querySelector(".blogs__element").innerHTML = await renderBlogs(
+    blogs
+  );
   document.querySelectorAll(".control-item").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       const [updatedBlogid, likes] = makeDataOperation(e);
@@ -38,10 +40,10 @@ if (new URL(location.href).pathname === "/") {
 }
 
 location.pathname === "/" &&
-  JSON.parse(localStorage.getItem("AuthenticatedUser"))?.isAdmin &&
+  sessionStorage.getItem("permision") === 'admin'  &&
   (location.href = "/admin/dashboard.html");
 
-const authuser = JSON.parse(localStorage.getItem("AuthenticatedUser"));
+const authuser = sessionStorage.getItem("auth-token");
 
 if (authuser) {
   document.querySelector("[data-auth]").dataset.auth = "true";

@@ -1,65 +1,61 @@
-const users = JSON.parse(localStorage.getItem("users")) ?? [];
+const loginUser = async (email, password) => {
+  const res = await fetch("http://localhost:3000/api/v1/auth/login", {
+    method: "post",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ email, password }),
+  });
 
-export default function verifyAccountExistence(email, password) {
-  const authUser = users.find(
-    (user) => user.email === email.value && user.password === password.value
-  );
-  if (authUser) {
-    localStorage.setItem("AuthenticatedUser", JSON.stringify(authUser));
-    authUser.isAdmin && (location.href = "/admin/dashboard.html");
-    !authUser.isAdmin && (location.href = "/");
-  }
+  const data = await res.json();
+  if (data?.data?.token) {
+    sessionStorage.setItem("auth-token", data?.data?.token);
+    if (data.data?.permision.includes("admin")) {
+      sessionStorage.setItem("permision", data.data?.permision);
 
-  if (
-    users.some(
-      (user) => user.email === email.value && user.password !== password.value
-    )
-  ) {
-    document.querySelector("#error").textContent = "fill the right password";
-    document.querySelector("#error").classList.toggle("error");
-    setTimeout(() => {
-      document.querySelector("#error").classList.toggle("error");
-    }, 3000);
+      location.href = "/admin/dashboard.html";
+    }
+    location.href = "/";
+
     return;
-  } else {
-    document.querySelector("#error").textContent = "Account not found";
+  }
+  if (data.error) {
+    console.log(data);
+
+    document.querySelector("#error").textContent = data.details;
     document.querySelector("#error").classList.toggle("error");
     setTimeout(() => {
       document.querySelector("#error").classList.toggle("error");
     }, 3000);
   }
+};
+export default function verifyAccountExistence(email, password) {
+  loginUser(email.value, password.value);
 }
 
-export function createUser({ email, password, Cpassword, acceptAgreement }) {
-  if (users.some((user) => user.email === email.value)) {
-    // localStorage.removeItem("AuthenticatedUser");
-    document.querySelector("#error").textContent = "Email already exist";
+export async function createUser(email, password, userName) {
+  const res = await fetch("http://localhost:3000/api/v1/auth/signup", {
+    method: "post",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ email, password, userName }),
+  });
+
+  const data = await res.json();
+  console.log(data);
+  if (data?.statusCode === 201) {
+    document.querySelector("#error").textContent =
+      data.message + " login to continue";
     document.querySelector("#error").classList.toggle("error");
     setTimeout(() => {
       document.querySelector("#error").classList.toggle("error");
     }, 3000);
-    return;
-  }
-  if (password.value !== Cpassword.value) {
-    // localStorage.removeItem("AuthenticatedUser");
-    document.querySelector("#error").textContent = "Passwords should match";
+  } else {
+    document.querySelector("#error").textContent = data.msg || data.message;
     document.querySelector("#error").classList.toggle("error");
     setTimeout(() => {
       document.querySelector("#error").classList.toggle("error");
     }, 3000);
-    return;
   }
-
-  const user = {
-    uid: crypto.randomUUID(),
-    email: email.value,
-    password: password.value,
-    isAdmin: !users.some(({ isAdmin }) => isAdmin),
-  };
-  console.log(users.some(({ isAdmin }) => isAdmin));
-  users.push(user);
-  localStorage.setItem("AuthenticatedUser", JSON.stringify(user));
-
-  localStorage.setItem("users", JSON.stringify(users));
-  location.href = "/";
 }

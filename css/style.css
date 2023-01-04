@@ -94,6 +94,22 @@ label[for="blogbanner"]::after {
   display: grid;
   align-items: center;
 }
+#error {
+  text-align: center;
+  color: white;
+  border-radius: 0.4em;
+  margin-inline: auto;
+  background-color: rgb(255, 111, 0);
+  max-width: fit-content;
+  padding: 1em 2em;
+  transition: 0.3s;
+  scale: 0;
+}
+
+.error {
+  scale: 1 !important;
+}
+
 @media screen and (max-width: 675px) {
   html,
   body {

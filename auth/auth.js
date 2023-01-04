@@ -20,8 +20,11 @@ document.querySelector("#username")?.addEventListener("keyup", (e) => {
 });
 register?.addEventListener("submit", (e) => {
   e.preventDefault();
-  createUser(register);
+  const { email, password, userName } = register;
+
+  createUser(email.value, password.value, userName.value);
 });
+
 form?.addEventListener("submit", (e) => {
   e.preventDefault();
   const { email, password } = form;
@@ -48,7 +51,6 @@ form?.addEventListener("submit", (e) => {
     }, 3000);
     return;
   }
-
   verifyAccountExistence(email, password);
 });
 
@@ -58,4 +60,4 @@ document.querySelector("#accept")?.addEventListener("change", (e) => {
 });
 let AuthenticatedUser = null;
 
-export default AuthenticatedUser = localStorage.getItem("AuthenticatedUser");
+export default AuthenticatedUser = sessionStorage.getItem("auth-token");

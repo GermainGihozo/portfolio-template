@@ -10,7 +10,25 @@
 #dashboard h3 {
   text-align: center;
 }
+.txt-lg {
+  height: 50px;
+  overflow-y: scroll;
+}
+.txt-lg::-webkit-scrollbar,
+.wrapper::-webkit-scrollbar {
+  width: 7px;
+}
 
+.txt-lg::-webkit-scrollbar-track,
+.wrapper::-webkit-scrollbar-track {
+  background: none;
+}
+
+.txt-lg::-webkit-scrollbar-thumb,
+.wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--primary-clr);
+  border-radius: 20px;
+}
 .content {
   margin-block: 1rem;
 }
@@ -219,12 +237,16 @@ details {
 .main-dashboard {
   width: 100%;
 }
+
 table {
   width: 100%;
-
   border-spacing: 0;
+  overflow: hidden;
 }
-
+.wrapper {
+  width: 100%;
+  overflow-x: scroll;
+}
 td {
   padding: 0.5em;
 }

@@ -105,3 +105,16 @@
 .toggle-replies:checked ~ .replies {
   display: none;
 }
+.default-avatar {
+  background-color: var(--primary-clr);
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

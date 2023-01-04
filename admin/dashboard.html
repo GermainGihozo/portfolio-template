@@ -517,6 +517,7 @@
 
             <div class="word-pad">
               <h4>Start writing yOur blog</h4>
+              <div id="error">test</div>
               <div class="control">
                 <label for="blogTitle">Blog title</label>
                 <input
@@ -716,10 +717,7 @@
         </div>
       </div>
     </section>
-    <!-- <div class="container delete-section">
-      <h1>All blogs</h1>
-      <ul class="delete-blog"></ul>
-    </div> -->
+
     <section class="container">
       <h1>List of users</h1>
       <table border="1">
@@ -727,30 +725,32 @@
           <th>User Id</th>
           <th>User name</th>
           <th>Email</th>
-          <th>Password</th>
           <th>Delete user</th>
         </tr>
         <tbody id="table-content"></tbody>
       </table>
 
       <h1>All my blogs</h1>
-      <table border="1">
-        <tr>
-          <th>Blog Id</th>
-          <th>Author</th>
-          <th>Blog Title</th>
-          <th>Blog Content</th>
-          <th>Comments</th>
-          <th>Likes</th>
-          <th>Delete Blog</th>
-        </tr>
-        <tbody id="blogs-table"></tbody>
-      </table>
+      <div class="wrapper">
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Blog Id</th>
+              <th>Author</th>
+              <th>Blog Title</th>
+              <th>Blog Content</th>
+              <th>Comments</th>
+              <th>Likes</th>
+              <th>Delete Blog</th>
+            </tr>
+          </thead>
+          <tbody id="blogs-table"></tbody>
+        </table>
+      </div>
       <h1>Comments table</h1>
       <table border="1">
         <tr>
-          <th>Blog Id</th>
-          <th>Likes</th>
+          <th>User Id</th>
           <th>Content</th>
           <th>Delete comment</th>
         </tr>

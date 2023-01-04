@@ -1,60 +1,58 @@
 import renderComment from "./renderComment.js";
 const blogId = new URL(location.href).hash.toString().replace("#", "");
-const authuser = JSON.parse(localStorage.getItem("AuthenticatedUser"));
-const blogs = JSON.parse(localStorage.getItem("blogs")) ?? [];
-const users = JSON.parse(localStorage.getItem("users")) ?? [];
-const userAvatar = users.find(({ uid }) => uid === authuser.uid).avatar;
-const searchedBlog = blogs.find(({ id }) => id === blogId);
-function renderBlog() {
+
+const res = await fetch(`http://localhost:3000/api/v1/blogs/${blogId}`);
+
+const blogData = await res.json();
+
+const blog = blogData.data;
+
+const authRes = await fetch(`http://localhost:3000/api/v1/auth/profile`, {
+  headers: {
+    Authorization: `Bearer ${sessionStorage.getItem("auth-token")}`,
+  },
+  method: "get",
+});
+const profile = await authRes.json();
+
+const banner = await (
+  await fetch("public/bk.txt".replace("public", "http://localhost:3000"))
+).text();
+async function renderBlog() {
   document.querySelector(".blog").innerHTML = `  
-  <h1>${searchedBlog?.data.title}</h1>
-  <img src="${searchedBlog?.data.banner}"/>
-  <pre>${searchedBlog?.data.content}</pre
+  <h3>${blog.title}</h3>
+  <img src="${banner}"/>
+  <div>${blog.body}</div
           >
           <div class="user-nav">
           
-           <div style="background-image: url(${userAvatar})" class="avatar"></div>
+           <div style="background-image: url(${banner}" class="avatar"></div>
             <textarea></textarea>
             <button id="comment"
              class="btn btn-primary reply">comment</button>
           </div>
   
           <div class="comments">
-          ${renderComment(searchedBlog)}
+          ${await renderComment(blog)}
             
           </div>`;
-  document.querySelector("#comment").addEventListener("click", (e) => {
+  document.querySelector("#comment").addEventListener("click", async (e) => {
     const text = document.querySelector(".user-nav textarea").value;
-    if (!searchedBlog.comments) {
-      searchedBlog.comments = [
-        {
-          id: Math.random(),
-          userId: authuser.uid,
-          user: null,
-          data: {
-            likes: [],
-            replies: [],
-            text,
-          },
+
+    const commentRes = await fetch(
+      `http://localhost:3000/api/v1/blogs/${blog._id}/comments`,
+      {
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${sessionStorage.getItem("auth-token")}`,
         },
-      ];
-    } else {
-      searchedBlog.comments = [
-        {
-          id: Math.random(),
-          userId: authuser.uid,
-          user: null,
-          data: {
-            likes: [],
-            replies: [],
-            text,
-          },
-        },
-        ...searchedBlog.comments,
-      ];
-    }
+        body: JSON.stringify({ text }),
+        method: "post",
+      }
+    );
+    const comment = await commentRes.json();
+
     renderBlog();
-    localStorage.setItem("blogs", JSON.stringify(blogs));
   });
 
   document
@@ -63,24 +61,15 @@ function renderBlog() {
 }
 renderBlog();
 
-function reply(e) {
-  const changedLike = searchedBlog.comments.find(
-    ({ id }) => id == e.currentTarget.dataset.id
-  );
+async function reply(e) {
+  const target = e.currentTarget
+  const likeRes = await fetch(`http://localhost:3000/api/v1/blogs/${blog._id}/comments/${e.currentTarget.dataset.id}/likes`, {
+  headers: {
+    Authorization: `Bearer ${sessionStorage.getItem("auth-token")}`,
+  },
+  method: "post",
+});
+const blogData = await likeRes.json();
+target.querySelector('span').textContent = blogData.data.comments.find(({_id}) => _id == target.dataset.id).likes.length
 
-  if (changedLike.data.likes?.includes(authuser.uid)) {
-    changedLike.data.likes.splice(
-      changedLike.data.likes?.indexOf(authuser.uid),
-      1
-    );
-  } else {
-    changedLike.data.like ??
-      (changedLike.data.likes = [
-        ...new Set([...changedLike.data?.likes, authuser.uid]),
-      ]);
-  }
-  localStorage.setItem("blogs", JSON.stringify(blogs));
-
-  e.currentTarget.querySelector("span").textContent =
-    changedLike.data.likes.length;
 }

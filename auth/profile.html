@@ -5,43 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module">
-      let profile = null;
-      const authuser = JSON.parse(localStorage.getItem("AuthenticatedUser"));
-      if (!authuser) {
+      const authRes = await fetch(`http://localhost:3000/api/v1/auth/profile`,{
+  headers:{
+    'Authorization': `Bearer ${sessionStorage.getItem('auth-token')}`
+  }
+  ,
+  method:'get'
+});
+      const {data:profile} = await authRes.json();
+// console.log(profile);
+     
+      if (!profile) {
         authuser && (location.href = "/auth/login.html");
       }
-      const users = JSON.parse(localStorage.getItem("users")) ?? [];
-      let ourUser = users.find(({ uid }) => uid === authuser.uid);
+
+
       const form = document.querySelector(".user-form");
-      const { userName, email, address, avatar, phone } = form;
-      email.value = authuser.email;
-      (profile = ourUser.avatar),
-        (userName.value = ourUser.userName || ""),
-        (address.value = ourUser.address || ""),
-        (phone.value = ourUser.phone || ""),
+      let { userName, email, address, avatar, phone } = form;
+
+let profilePic = ''
+      email.value = profile.email;
+      (profilePic = profile.avatar),
+        (userName.value = profile.userName || ""),
+        (address.value = profile.address || ""),
+        (phone.value = profile.phone || ""),
         avatar.addEventListener("change", (e) => {
           document.querySelector("label[for='blogbanner']").dataset.image =
             e.target.value;
           const imageReader = new FileReader();
           imageReader.onload = (e) => {
-            profile = e.target.result;
+            profilePic = e.target.result;
+
           };
           imageReader.readAsDataURL(e.target.files[0]);
         });
 
-      form.addEventListener("submit", (e) => {
+      form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        ourUser = {
-          ...ourUser,
-          avatar: profile,
-          userName: userName.value,
+        const profileData = {
+          avatar: profilePic,
           address: address.value,
           phone: phone.value,
         };
-        const updatedUser = users.map((user) =>
-          user.uid === ourUser.uid ? ourUser : user
-        );
-        localStorage.setItem("users", JSON.stringify(updatedUser));
+        const data = {}
+        for(let profileItem in profileData){
+          if(profileData[profileItem] !== '' && profileData[profileItem] !== undefined){
+            data[profileItem] = profileData[profileItem]
+          }
+        }
+        const authRes = await fetch(`http://localhost:3000/api/v1/auth/users/${profile._id}`,{
+  headers:{
+    'content-type':'application/json',
+    'Authorization': `Bearer ${sessionStorage.getItem('auth-token')}`
+  }
+  ,
+  body: JSON.stringify(data),
+  method:'put'
+});
+console.log(await authRes.json(), data);
       });
     </script>
     <script src="../app.js" defer type="module"></script>

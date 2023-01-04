@@ -1,25 +1,40 @@
-export default function renderBlogs(blogs) {
-  console.log(blogs);
+export const getImage = async (url) => {
+  const img = await fetch("http://localhost:3000/spider_logo.txt");
+  return await img.text();
+  // const img = await fetch(url.replace("public/", ""));
+  // console.log(await img.text());
+};
 
-  return blogs
-    .filter(({ published }) => published)
-    .reduce(
-      (htmlBlogString, currentBlog, i) =>
-        htmlBlogString +
-        `  <details id="${currentBlog.id}" ${i === 0 && "open"}>
-    <summary>${currentBlog.data?.title}</summary>
-    <img src="${currentBlog.data?.banner}" alt="${
-          currentBlog.data?.title
-        } picture">
+export const getLikes = async (blogId) => {
+  const likes = await fetch(
+    `http://localhost:3000/api/v1/blogs/${blogId}/likes`
+  );
+  return await likes.json();
+};
+
+export default async function renderBlogs(blogs) {
+  const data = [];
+  for (let blog of blogs) {
+    const banner = await getImage(blog.banner);
+    const likes = await getLikes(blog._id);
+    data.push({ ...blog, banner, likes: likes.length });
+  }
+  // console.log(data);
+  return data.reduce(
+    (htmlBlogString, currentBlog, i) =>
+      htmlBlogString +
+      `  <details id="${currentBlog._id}" ${i === 0 && "open"}>
+    <summary>${currentBlog.title}</summary>
+    <img src="${currentBlog.banner}" alt="${currentBlog.data?.title} picture">
     <br>
     <pre class="content">
-     ${currentBlog.data?.content}
+     ${currentBlog.body}
     </pre>
-    
+
     <div class="user-controls">
-      <a href="/blog.html#${currentBlog.id}" class="btn">Read more</a>
-    
-      <span data-like="1" data-id="${currentBlog.id}" class="control-item">
+      <a href="/blog.html#${currentBlog._id}" class="btn">Read more</a>
+
+      <span data-like="1" data-id="${currentBlog._id}" class="control-item">
         <svg
           width="24"
           height="24"
@@ -35,9 +50,9 @@ export default function renderBlogs(blogs) {
             stroke-linejoin="round"
           />
         </svg>
-        <span class="likes">${currentBlog.likes?.length ?? 0} likes</span>
+        <span class="likes">${currentBlog.likes} likes</span>
       </span>
-      <span data-comment="1" data-id="${currentBlog.id}" class="control-item">
+      <span data-comment="1" data-id="${currentBlog._id}" class="control-item">
         <svg
           width="24"
           height="24"
@@ -61,10 +76,10 @@ export default function renderBlogs(blogs) {
             stroke-linejoin="round"
           />
         </svg>
-    
-        <span>45 comments</span>
+
+        <span>${currentBlog.comments.length} comments</span>
       </span>
-      <span data-id="${currentBlog.id}" class="control-item">
+      <span data-id="${currentBlog._id}" class="control-item">
         <svg
           width="24"
           height="24"
@@ -87,11 +102,11 @@ export default function renderBlogs(blogs) {
             stroke-linejoin="round"
           />
         </svg>
-    
+
         <span>45 reads</span>
       </span>
     </div>
     </details>`,
-      ""
-    );
+    ""
+  );
 }
