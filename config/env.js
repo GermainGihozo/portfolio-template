@@ -1,3 +1,3 @@
 export default {
-    backend_url: "http://localhost:3000"
+    backend_url: "https://wild-gray-termite-slip.cyclic.app"
 }
