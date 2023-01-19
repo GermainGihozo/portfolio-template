@@ -1,13 +1,15 @@
 import renderComment from "./renderComment.js";
+import config from '../config/env.js'
+
 const blogId = new URL(location.href).hash.toString().replace("#", "");
 
-const res = await fetch(`http://localhost:3000/api/v1/blogs/${blogId}`);
+const res = await fetch(`${config.backend_url}/api/v1/blogs/${blogId}`);
 
 const blogData = await res.json();
 
 const blog = blogData.data;
 
-const authRes = await fetch(`http://localhost:3000/api/v1/auth/profile`, {
+const authRes = await fetch(`${config.backend_url}/api/v1/auth/profile`, {
   headers: {
     Authorization: `Bearer ${sessionStorage.getItem("auth-token")}`,
   },
@@ -15,18 +17,18 @@ const authRes = await fetch(`http://localhost:3000/api/v1/auth/profile`, {
 });
 const profile = await authRes.json();
 
-const banner = await (
-  await fetch("public/bk.txt".replace("public", "http://localhost:3000"))
-).text();
+
 async function renderBlog() {
   document.querySelector(".blog").innerHTML = `  
   <h3>${blog.title}</h3>
-  <img src="${banner}"/>
-  <div>${blog.body}</div
+  <img src="${blog.banner}"/>
+  <div>
+  <pre>${blog.body}</pre>
+  </div
           >
           <div class="user-nav">
           
-           <div style="background-image: url(${banner}" class="avatar"></div>
+           <div style="background-image: url(${profile.data?.avatar}" class="avatar"></div>
             <textarea></textarea>
             <button id="comment"
              class="btn btn-primary reply">comment</button>
@@ -40,7 +42,7 @@ async function renderBlog() {
     const text = document.querySelector(".user-nav textarea").value;
 
     const commentRes = await fetch(
-      `http://localhost:3000/api/v1/blogs/${blog._id}/comments`,
+      `${config.backend_url}/api/v1/blogs/${blog._id}/comments`,
       {
         headers: {
           "content-type": "application/json",
@@ -63,7 +65,7 @@ renderBlog();
 
 async function reply(e) {
   const target = e.currentTarget
-  const likeRes = await fetch(`http://localhost:3000/api/v1/blogs/${blog._id}/comments/${e.currentTarget.dataset.id}/likes`, {
+  const likeRes = await fetch(`${config.backend_url}/api/v1/blogs/${blog._id}/comments/${e.currentTarget.dataset.id}/likes`, {
   headers: {
     Authorization: `Bearer ${sessionStorage.getItem("auth-token")}`,
   },

@@ -1,13 +1,7 @@
-export const getImage = async (url) => {
-  const img = await fetch("http://localhost:3000/spider_logo.txt");
-  return await img.text();
-  // const img = await fetch(url.replace("public/", ""));
-  // console.log(await img.text());
-};
-
+import config from '../config/env.js'
 export const getLikes = async (blogId) => {
   const likes = await fetch(
-    `http://localhost:3000/api/v1/blogs/${blogId}/likes`
+    `${config.backend_url}/api/v1/blogs/${blogId}/likes`
   );
   return await likes.json();
 };
@@ -15,11 +9,9 @@ export const getLikes = async (blogId) => {
 export default async function renderBlogs(blogs) {
   const data = [];
   for (let blog of blogs) {
-    const banner = await getImage(blog.banner);
     const likes = await getLikes(blog._id);
-    data.push({ ...blog, banner, likes: likes.length });
+    data.push({ ...blog, likes: likes.length });
   }
-  // console.log(data);
   return data.reduce(
     (htmlBlogString, currentBlog, i) =>
       htmlBlogString +
@@ -27,9 +19,9 @@ export default async function renderBlogs(blogs) {
     <summary>${currentBlog.title}</summary>
     <img src="${currentBlog.banner}" alt="${currentBlog.data?.title} picture">
     <br>
-    <pre class="content">
-     ${currentBlog.body}
-    </pre>
+    <div class="content" >
+    <pre>${currentBlog.body}</pre>
+    </div>
 
     <div class="user-controls">
       <a href="/blog.html#${currentBlog._id}" class="btn">Read more</a>

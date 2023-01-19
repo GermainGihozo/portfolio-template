@@ -1,6 +1,8 @@
+import config from '../config/env.js'
+
 const getUserAvatar = async (comment) => {
   const authRes = await fetch(
-    `http://localhost:3000/api/v1/auth/users/${comment.user}`,
+    `${config.backend_url}/api/v1/auth/users/${comment.user}`,
     {
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem("auth-token")}`,
@@ -14,7 +16,6 @@ const getUserAvatar = async (comment) => {
 
 export default async function renderComment(blog) {
   let commentsString = "";
-  console.log(blog);
   for (let nextComment of blog?.comments) {
     const avatar = await getUserAvatar(nextComment);
     commentsString += `<div id="${nextComment._id}">

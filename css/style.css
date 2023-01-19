@@ -105,11 +105,16 @@ label[for="blogbanner"]::after {
   transition: 0.3s;
   scale: 0;
 }
-
+img {
+  max-width: 100%;
+  margin-block: 1rem;
+}
 .error {
   scale: 1 !important;
 }
-
+pre {
+  white-space: break-spaces;
+}
 @media screen and (max-width: 675px) {
   html,
   body {

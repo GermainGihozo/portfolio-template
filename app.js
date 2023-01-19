@@ -1,12 +1,14 @@
 import renderBlogs from "./js/renderBlogs.js";
 import makeDataOperation from "./js/makeDataOperation.js";
+import config from '../config/env.js'
+
 const navBarTogglerIcon = document.querySelector("#nav-toggler");
 const navBar = document.querySelector("nav .links");
 let theme = localStorage.getItem("theme") ?? "light";
 const dashboard = document.querySelector(".dashboard");
 const documentThemeElement = document.querySelector("#theme");
 documentThemeElement.setAttribute("data-theme", theme);
-const res = await fetch("http://localhost:3000/api/v1/blogs");
+const res = await fetch(`${config.backend_url}/api/v1/blogs`);
 const blogsData = await res.json();
 const blogs = blogsData.data;
 document.querySelector(".theme-toggler").addEventListener("click", (e) => {
@@ -30,15 +32,31 @@ if (new URL(location.href).pathname === "/") {
     blogs
   );
   document.querySelectorAll(".control-item").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const [updatedBlogid, likes] = makeDataOperation(e);
+    btn.addEventListener("click", async(e) => {
+      const [updatedBlogid, likes] = await makeDataOperation(e);
       document
         .getElementById(`${updatedBlogid}`)
         .querySelector(".likes").textContent = `${likes} likes`;
     });
   });
 }
+document.querySelector('#message').addEventListener('submit', async e =>{
+  e.preventDefault()
 
+  const res = await fetch(config.backend_url + '/api/v1/messages', {
+    method: 'post',
+    headers: {
+      'Authorization': `Bearer ${sessionStorage.getItem('auth-token')}`,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: e.target.name.value,
+      email: e.target.email.value,
+      subject: e.target.subject.value,
+      message: e.target.message.value
+    })
+  })
+})
 location.pathname === "/" &&
   sessionStorage.getItem("permision") === 'admin'  &&
   (location.href = "/admin/dashboard.html");
