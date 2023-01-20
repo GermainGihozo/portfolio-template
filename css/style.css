@@ -16,6 +16,11 @@ main {
   min-height: calc(100vh - 75px);
   justify-content: center;
 }
+#contacts {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
 h2,
 h1,
 #about-me h3,
@@ -94,7 +99,7 @@ label[for="blogbanner"]::after {
   display: grid;
   align-items: center;
 }
-#error {
+#error, .error {
   text-align: center;
   color: white;
   border-radius: 0.4em;

@@ -95,7 +95,7 @@
 #blog button {
   color: var(--primary-clr);
 }
-.control input,
+.control input, 
 .control textarea,
 #blogEditor,
 #blogTitle {

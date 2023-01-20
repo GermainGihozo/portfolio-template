@@ -7,7 +7,7 @@ const res = await fetch(`${config.backend_url}/api/v1/blogs/${blogId}`);
 
 const blogData = await res.json();
 
-const blog = blogData.data;
+let blog = blogData.data;
 
 const authRes = await fetch(`${config.backend_url}/api/v1/auth/profile`, {
   headers: {
@@ -53,7 +53,7 @@ async function renderBlog() {
       }
     );
     const comment = await commentRes.json();
-
+   blog = comment.data
     renderBlog();
   });
 
@@ -72,6 +72,7 @@ async function reply(e) {
   method: "post",
 });
 const blogData = await likeRes.json();
+
 target.querySelector('span').textContent = blogData.data.comments.find(({_id}) => _id == target.dataset.id).likes.length
 
 }

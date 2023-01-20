@@ -38,7 +38,6 @@ return msgDOM
 })()
 messages && document.querySelectorAll('.delete-msg svg').forEach(btn => btn.addEventListener('click', deleteMsg))
 async function deleteMsg(e){
-  // e.currentTarget.closest('tr').remove()
 const res = await fetch(`${config.backend_url }/api/v1/messages/${e.currentTarget.dataset.id}`, {
   headers: {
     Authorization: `Bearer ${sessionStorage.getItem("auth-token")}`,
@@ -162,7 +161,6 @@ document.querySelector("#comments-table").innerHTML = allComments
   .join("");
 
 const blogbanner = document.querySelector("#blogbanner");
-
 blogbanner.addEventListener("change", (e) => {
   document.querySelector("label[for='blogbanner']").dataset.image =
     e.target.value;
@@ -187,7 +185,7 @@ document.querySelectorAll(".blog-delete svg").forEach((btn) =>
     );
     const blog = await blogDeleteRes.json();
     if (blog && blog.data) {
-      location.reload();
+      e.target.closest('tr').remove()
     }
   })
 );
@@ -259,6 +257,7 @@ if (action === "edit") {
           body: JSON.stringify({
             body: blogEditor.value,
             title: blogTitle.value,
+            banner
           }),
           method: "put",
         }

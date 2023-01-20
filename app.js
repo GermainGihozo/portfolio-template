@@ -2,6 +2,8 @@ import renderBlogs from "./js/renderBlogs.js";
 import makeDataOperation from "./js/makeDataOperation.js";
 import config from '../config/env.js'
 
+const alertBox= document.querySelector(".alert")
+
 const navBarTogglerIcon = document.querySelector("#nav-toggler");
 const navBar = document.querySelector("nav .links");
 let theme = localStorage.getItem("theme") ?? "light";
@@ -56,7 +58,20 @@ document.querySelector('#message').addEventListener('submit', async e =>{
       message: e.target.message.value
     })
   })
+  if(res.ok) {
+    alertBox.textContent= 'message sent you will get reply in four hours'
+    alertBox.classList.add('error')
+    setTimeout(removeAlert, 3500)
+  }else {
+    alertBox.textContent = (await res.json()).error
+    alertBox.classList.add('error')
+    setTimeout(removeAlert, 3500)
+  }
 })
+
+    function removeAlert() {
+alertBox.remove()
+    }
 location.pathname === "/" &&
   sessionStorage.getItem("permision") === 'admin'  &&
   (location.href = "/admin/dashboard.html");
