@@ -5,25 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module">
-      const authRes = await fetch(`http://localhost:3000/api/v1/auth/profile`,{
-  headers:{
-    'Authorization': `Bearer ${sessionStorage.getItem('auth-token')}`
-  }
-  ,
-  method:'get'
-});
-      const {data:profile} = await authRes.json();
-// console.log(profile);
-     
-      if (!profile) {
-         (location.href = "/auth/login.html");
-      }
+      import config from "../config/env.js";
+      const authRes = await fetch(`${config.backend_url}/api/v1/auth/profile`, {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("auth-token")}`,
+        },
+        method: "get",
+      });
+      const { data: profile } = await authRes.json();
+      // console.log(profile);
 
+      if (!profile) {
+        location.href = "/auth/login.html";
+      }
 
       const form = document.querySelector(".user-form");
       let { userName, email, address, avatar, phone } = form;
 
-let profilePic = ''
+      let profilePic = "";
       email.value = profile.email;
       (profilePic = profile.avatar),
         (userName.value = profile.userName || ""),
@@ -35,7 +34,6 @@ let profilePic = ''
           const imageReader = new FileReader();
           imageReader.onload = (e) => {
             profilePic = e.target.result;
-
           };
           imageReader.readAsDataURL(e.target.files[0]);
         });
@@ -47,22 +45,27 @@ let profilePic = ''
           address: address.value,
           phone: phone.value,
         };
-        const data = {}
-        for(let profileItem in profileData){
-          if(profileData[profileItem] !== '' && profileData[profileItem] !== undefined){
-            data[profileItem] = profileData[profileItem]
+        const data = {};
+        for (let profileItem in profileData) {
+          if (
+            profileData[profileItem] !== "" &&
+            profileData[profileItem] !== undefined
+          ) {
+            data[profileItem] = profileData[profileItem];
           }
         }
-        const authRes = await fetch(`http://localhost:3000/api/v1/auth/users/${profile._id}`,{
-  headers:{
-    'content-type':'application/json',
-    'Authorization': `Bearer ${sessionStorage.getItem('auth-token')}`
-  }
-  ,
-  body: JSON.stringify(data),
-  method:'put'
-});
-console.log(await authRes.json(), data);
+        const authRes = await fetch(
+          `${config.backend_url}/api/v1/auth/users/${profile._id}`,
+          {
+            headers: {
+              "content-type": "application/json",
+              Authorization: `Bearer ${sessionStorage.getItem("auth-token")}`,
+            },
+            body: JSON.stringify(data),
+            method: "put",
+          }
+        );
+        console.log(await authRes.json(), data);
       });
     </script>
     <script src="../app.js" defer type="module"></script>
