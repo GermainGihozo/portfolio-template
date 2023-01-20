@@ -1,5 +1,6 @@
+import config from "../config/env.js";
 const loginUser = async (email, password) => {
-  const res = await fetch("http://localhost:3000/api/v1/auth/login", {
+  const res = await fetch(config.backend_url + "/api/v1/auth/login", {
     method: "post",
     headers: {
       "content-type": "application/json",
@@ -34,7 +35,7 @@ export default function verifyAccountExistence(email, password) {
 }
 
 export async function createUser(email, password, userName) {
-  const res = await fetch("http://localhost:3000/api/v1/auth/signup", {
+  const res = await fetch(config.backend_url + "/api/v1/auth/signup", {
     method: "post",
     headers: {
       "content-type": "application/json",
