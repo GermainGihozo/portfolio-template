@@ -11,7 +11,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
     <div class="hero">
     <h1>Creative web developer and designer</h1>
         <p class="text-mute">
-          I bring solutions to the teams. Highly organised and detail oriented fullstack web developer.
+        As a highly organized and detail-oriented programmer and designer, Muslim is always striving to improve his skills and creativity. His passion for learning and collaborating with individuals and teams of all sizes and levels of creativity drives him forward.
         </p>
         <button-c id="counter" type="button"></button-c>
         </div>
