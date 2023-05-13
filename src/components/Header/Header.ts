@@ -25,24 +25,16 @@ header {
     justify-content: space-between;
   }
 
-  .container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-  }
-  
   span {
   font-size: 2.2em;
   font-weight: bold;
   }
+  
 </style>
 <header>
-<div class="container">
 <span>Muslim</span>
 <nav-c></nav-c>
 
   <theme-toggler-c></theme-toggler-c>
-</div>
 </header>
 `;

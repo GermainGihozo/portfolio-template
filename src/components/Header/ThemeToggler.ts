@@ -12,29 +12,44 @@ export class ThemeToggler extends HTMLElement {
       this.shadowRoot?.querySelector("#sun")?.classList.toggle("hide");
       this.shadowRoot?.querySelector("#moon")?.classList.toggle("hide");
       root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
-      console.log(root);
     });
   }
 }
 
 template.innerHTML = `
-<span class="theme-toggler">
-    <style>
-      .hide {
-        opacity: 0;
-      }
-      #sun, #moon {
-        position: absolute;
-        transition: all 0.1s;
-        cursor: pointer;
-      }
+<style>
+  .hide {
+    opacity: 0;
+  }
+  #sun, #moon {
+    position: absolute;
+    transition: all 0.1s;
+    cursor: pointer;
+  }
 
 
-      .icon {
-        stroke: var(--primary-clr);
-      }
-      
-    </style>
+  .icon {
+    stroke: var(--primary-clr);
+  }
+  
+
+  .theme-toggler {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color .4s;
+  }
+
+  .theme-toggler:hover {
+    background-color: var(--bg-transparent);
+
+  }
+</style>
+  <div class="theme-toggler">
       <svg
         width="24"
         height="24"
@@ -75,7 +90,5 @@ template.innerHTML = `
           stroke="#bd34fe"
         />
       </svg>
-
-  </span>
- 
+      </div>
 `;

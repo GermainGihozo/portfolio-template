@@ -47,6 +47,12 @@
   stroke: var(--secondary-clr);
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -72,10 +78,8 @@ h1 {
 }
 
 .container {
-  width: 100%;
-  max-width: 1000px;
+  width: min(100ch, 100% - 4rem);
   margin-inline: auto;
-  padding-inline: 4vw;
 }
 
 .logo {
@@ -99,25 +103,30 @@ h1 {
   color: #888;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #bd34fe;
-  cursor: pointer;
-  transition: border-color 0.25s;
+/* Hero section */
+.hero {
+  margin-top: 4rem;
 }
-button:hover {
-  border-color: #646cff;
+.hero * {
+  margin-block: 0.7rem;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/* Hero section */
+
+/* skills */
+.skills {
+  overflow: hidden;
 }
 
+.skills p {
+  display: flex;
+  animation: skills 30s linear 2s infinite;
+}
+@keyframes skills {
+  to {
+    transform: translateX(-100%);
+  }
+}
+/* skills */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -129,4 +138,10 @@ button:focus-visible {
   /* button {
     background-color: #f9f9f9;
   } */
+}
+
+@media (max-width: 400px) {
+  body {
+    text-align: center;
+  }
 }
