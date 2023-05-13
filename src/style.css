@@ -1,0 +1,147 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+:root {
+  --bg-transparent: #f3bb2e4f;
+}
+
+[data-theme="light"] {
+  --primary-clr: #bd34fe;
+  --secondary-clr: #ffc61e;
+  --active-clr: hsl(256, 99%, 71%);
+  --bg-clr: #fff;
+  --nav-bg-clr: #ffc61e;
+  --nav-text-clr: var(--primary-clr);
+  --text-field-bg: var(--bg-clr);
+  --body-bg: hsl(256, 99%, 100%);
+  --text-clr: hsl(256, 99%, 10%);
+}
+
+[data-theme="dark"] {
+  --primary-clr: #ffc61e;
+  --secondary-clr: #bd34fe;
+  --active-clr: #926bfe;
+  --bg-clr: var(--secondary-clr);
+  --nav-bg-clr: var(--bg-transparent);
+  --nav-text-clr: var(--primary-clr);
+  --body-bg: hsl(256, 99%, 10%);
+  --text-clr: hsl(256, 99%, 100%);
+}
+
+[data-theme="light"] #sun {
+  transition: all 0.4s;
+  z-index: 5;
+  stroke: var(--secondary-clr);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  background-color: var(--body-bg);
+  color: var(--text-clr);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app {
+  max-width: 1280px;
+}
+
+.container {
+  width: min(100ch, 100% - 4rem);
+  margin-inline: auto;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #3178c6aa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.text-mute {
+  color: #888;
+}
+
+/* Hero section */
+.hero {
+  margin-top: 4rem;
+}
+.hero * {
+  margin-block: 0.7rem;
+}
+/* Hero section */
+
+/* skills */
+.skills {
+  overflow: hidden;
+}
+
+.skills p {
+  display: flex;
+  animation: skills 30s linear 2s infinite;
+}
+@keyframes skills {
+  to {
+    transform: translateX(-100%);
+  }
+}
+/* skills */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  /* button {
+    background-color: #f9f9f9;
+  } */
+}
+
+@media (max-width: 400px) {
+  body {
+    text-align: center;
+  }
+}
