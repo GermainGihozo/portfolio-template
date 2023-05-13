@@ -1,21 +1,21 @@
-import { NavToggler } from "./NavToggler";
+import { NavToggler } from './NavToggler';
 
-const template = document.createElement("template");
+const template = document.createElement('template');
 
 export class Nav extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
+    this.attachShadow({ mode: 'open' });
     this.shadowRoot?.appendChild(template.content.cloneNode(true));
   }
 
-  connectedCallback(){
+  connectedCallback() {
     this.shadowRoot?.querySelector('menu-c')?.addEventListener('click', () => {
-      this.shadowRoot?.querySelector('ul')?.classList.toggle('show')
-    })
+      this.shadowRoot?.querySelector('ul')?.classList.toggle('show');
+    });
+  }
 }
-}
-customElements.define("menu-c", NavToggler);
+customElements.define('menu-c', NavToggler);
 
 template.innerHTML = `
 <style>

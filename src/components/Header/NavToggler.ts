@@ -1,16 +1,19 @@
-const template = document.createElement("template");
+const template = document.createElement('template');
 
 export class NavToggler extends HTMLElement {
-    constructor(){
-        super()
-        this.attachShadow({mode: 'open'})
-        this.shadowRoot?.appendChild(template.content.cloneNode(true))
-    }
-    connectedCallback(){
-        this.shadowRoot?.addEventListener('click', () => {
-            this.shadowRoot?.querySelector('#nav-toggler')?.classList.toggle('nav-active')
-        })
-    }
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot?.appendChild(template.content.cloneNode(true));
+  }
+
+  connectedCallback() {
+    this.shadowRoot?.addEventListener('click', () => {
+      this.shadowRoot
+        ?.querySelector('#nav-toggler')
+        ?.classList.toggle('nav-active');
+    });
+  }
 }
 
 template.innerHTML = `
@@ -86,4 +89,4 @@ template.innerHTML = `
 </svg>
 </span>
 
-`
+`;

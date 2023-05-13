@@ -1,10 +1,8 @@
-import "./style.css";
-import typescriptLogo from "./typescript.svg";
-import viteLogo from "/vite.svg";
-import { setupCounter } from "./counter.ts";
-import { Button, Header, Portfolio } from "./components/index.ts";
+import { setupCounter } from './counter.ts';
+import { Button, Header, Portfolio, SkillsSlider } from './components/index.ts';
+import './style.css';
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div class="container">
     <header-c></header-c>
    
@@ -18,71 +16,8 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
         <div class="skills">
         <p>
         <a href="https://vitejs.dev" target="_blank">
-          <img src="${viteLogo}" class="logo" alt="Vite logo" />
+          <skillslider-c></skillslider-c>
         </a>
-        <a href="https://www.typescriptlang.org/" target="_blank">
-          <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-        </a>
-        <a href="https://vitejs.dev" target="_blank">
-        <img src="${viteLogo}" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://www.typescriptlang.org/" target="_blank">
-        <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-      </a>
-      <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://www.typescriptlang.org/" target="_blank">
-        <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-      </a>
-      <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-      </a>
-      <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-      </a>
-      <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-      </a>
-      <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-      </a>
-      <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-      </a>
-      <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-      </a>
-      <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-      </a>
-      <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-      </a>
       </p>
     </div>
     <portfolio-c></portfolio-c>
@@ -90,7 +25,8 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   </div>
 `;
 
-setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
-customElements.define("header-c", Header);
-customElements.define("portfolio-c", Portfolio);
-customElements.define("button-c", Button);
+setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
+customElements.define('header-c', Header);
+customElements.define('portfolio-c', Portfolio);
+customElements.define('button-c', Button);
+customElements.define('skillslider-c', SkillsSlider);
