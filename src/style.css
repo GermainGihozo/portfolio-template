@@ -18,7 +18,7 @@
   --bg-transparent: #f3bb2e4f;
 }
 
-[data-theme="light"] {
+[data-theme='light'] {
   --primary-clr: #bd34fe;
   --secondary-clr: #ffc61e;
   --active-clr: hsl(256, 99%, 71%);
@@ -30,7 +30,7 @@
   --text-clr: hsl(256, 99%, 10%);
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   --primary-clr: #ffc61e;
   --secondary-clr: #bd34fe;
   --active-clr: #926bfe;
@@ -41,7 +41,7 @@
   --text-clr: hsl(256, 99%, 100%);
 }
 
-[data-theme="light"] #sun {
+[data-theme='light'] #sun {
   transition: all 0.4s;
   z-index: 5;
   stroke: var(--secondary-clr);
@@ -115,6 +115,7 @@ h1 {
 /* skills */
 .skills {
   overflow: hidden;
+  margin-top: 4rem;
 }
 
 .skills p {

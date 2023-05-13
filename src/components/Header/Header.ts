@@ -1,18 +1,18 @@
-import { Nav } from "./Nav";
-import { ThemeToggler } from "./ThemeToggler";
+import { Nav } from './Nav';
+import { ThemeToggler } from './ThemeToggler';
 
-const template = document.createElement("template");
+const template = document.createElement('template');
 ThemeToggler;
 export class Header extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
+    this.attachShadow({ mode: 'open' });
     this.shadowRoot?.appendChild(template.content.cloneNode(true));
   }
 }
 
-customElements.define("theme-toggler-c", ThemeToggler);
-customElements.define("nav-c", Nav);
+customElements.define('theme-toggler-c', ThemeToggler);
+customElements.define('nav-c', Nav);
 
 template.innerHTML = `
 <style>

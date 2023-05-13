@@ -1,17 +1,17 @@
-const template = document.createElement("template");
-const root = document.querySelector("html") as HTMLHtmlElement;
+const template = document.createElement('template');
+const root = document.querySelector('html') as HTMLHtmlElement;
 export class ThemeToggler extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
+    this.attachShadow({ mode: 'open' });
     this.shadowRoot?.appendChild(template.content.cloneNode(true));
   }
 
   connectedCallback() {
-    this.shadowRoot?.addEventListener("click", () => {
-      this.shadowRoot?.querySelector("#sun")?.classList.toggle("hide");
-      this.shadowRoot?.querySelector("#moon")?.classList.toggle("hide");
-      root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+    this.shadowRoot?.addEventListener('click', () => {
+      this.shadowRoot?.querySelector('#sun')?.classList.toggle('hide');
+      this.shadowRoot?.querySelector('#moon')?.classList.toggle('hide');
+      root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
     });
   }
 }

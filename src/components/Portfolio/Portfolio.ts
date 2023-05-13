@@ -1,17 +1,15 @@
-import { Card } from "./Card";
+import { Card } from './Card';
 
-const template = document.createElement("template");
+const template = document.createElement('template');
 
 export class Portfolio extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
+    this.attachShadow({ mode: 'open' });
     this.shadowRoot?.appendChild(template.content.cloneNode(true));
   }
-
-  connectedCallback() {}
 }
-customElements.define("card-c", Card);
+customElements.define('card-c', Card);
 
 template.innerHTML = `
   <style>
@@ -26,7 +24,8 @@ template.innerHTML = `
 
     .works {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, auto))
+        grid-template-columns: repeat(auto-fill, minmax(350px, auto));
+        gap: 2rem;
     }
 
   </style>

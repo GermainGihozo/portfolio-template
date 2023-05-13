@@ -1,10 +1,18 @@
-const template = document.createElement("template");
+const template = document.createElement('template');
 
 export class Button extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
+    this.attachShadow({ mode: 'open' });
     this.shadowRoot?.appendChild(template.content.cloneNode(true));
+  }
+
+  connectedCallback() {
+    const hasOutline = this.getAttribute('outline') === 'true';
+    const btn = this.shadowRoot?.querySelector('button');
+    if (btn != null) {
+      btn.style.backgroundColor = hasOutline ? 'none' : '#bd34fe';
+    }
   }
 }
 
@@ -17,12 +25,11 @@ button {
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #bd34fe;
     cursor: pointer;
     transition: border-color 0.25s;
   }
   button:hover {
-    border-color: #646cff;
+    border-color: #bd34fe;
   }
   button:focus,
   button:focus-visible {
