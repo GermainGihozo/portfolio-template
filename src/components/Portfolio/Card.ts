@@ -1,4 +1,4 @@
-import github from '../../../../../../../../../github.png';
+// import github from '../../../../../../../../../profile.jpg';
 
 const template = document.createElement('template');
 
@@ -21,7 +21,7 @@ template.innerHTML = `
 
   </style>
   <article>
-  <img src="${github}" class="logo" alt="Vite logo" />
+  <img src="/profile.jpg" class="logo" alt="Vite logo" />
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incid.
 
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incid.

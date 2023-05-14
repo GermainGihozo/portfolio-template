@@ -14,11 +14,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <button-c id="counter" type="button"></button-c>
         </div>
         <div class="skills">
-        <p>
-        <a href="https://vitejs.dev" target="_blank">
           <skillslider-c></skillslider-c>
-        </a>
-      </p>
     </div>
     <portfolio-c></portfolio-c>
     </div>
