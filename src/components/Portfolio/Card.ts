@@ -12,22 +12,43 @@ export class Card extends HTMLElement {
 
 template.innerHTML = `
   <style>
-
-    img {
-      width: 100%;
-      object-fit: cover;
-      border-radius: .4rem;
+    section {
+      margin-block: 4rem;
     }
 
-  </style>
-  <article>
-  <img src="/profile.jpg" class="logo" alt="Vite logo" />
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incid.
+    section > div {
+      display: grid;
+      grid-template-columns: 50% auto auto;
+      gap: .5rem;
+    }
 
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incid.
-  
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incid.</p>
-  <button-c>view on github</button-c>
-  <button-c outline="true">view live website</button-c>
-  </article>
+    article {
+      background-color: var(--primary-clr-transparent);
+      border-radius: .4rem;
+      padding: 1.2rem;
+    }
+
+    h3 {
+      margin-block: 0;
+    }
+
+
+  </style>
+  <section>
+  <h2><slot name="header"></slot></h2>
+    <div>
+    <article>
+    <slot name="logo"></slot>
+    <p><slot name="description"></slot></p>
+    <slot name="picture"></slot>
+    <slot name="github"></slot>
+    </article>
+    <div>
+    <slot name="mobile"></slot>
+    <h3>Tech stacks</h3>
+    <slot name="techstack"></slot>
+    <slot name="liveweb"></slot>
+    </div>
+    </div>
+  </section>
 `;

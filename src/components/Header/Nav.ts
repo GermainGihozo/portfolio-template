@@ -9,7 +9,7 @@ export class Nav extends HTMLElement {
     this.shadowRoot?.appendChild(template.content.cloneNode(true));
   }
 
-  connectedCallback() {
+  connectedCallback(): void {
     this.shadowRoot?.querySelector('menu-c')?.addEventListener('click', () => {
       this.shadowRoot?.querySelector('ul')?.classList.toggle('show');
     });
