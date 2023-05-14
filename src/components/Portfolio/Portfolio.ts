@@ -1,5 +1,5 @@
 import { Card } from './Card';
-import { projects } from './projects';
+import { projects, projects } from './projects';
 
 const template = document.createElement('template');
 
@@ -23,12 +23,15 @@ export class Portfolio extends HTMLElement {
           description,
           images,
           techStacks,
+          skillsGained,
+          linksToolTipData,
         }) => {
           worksElement.innerHTML += `<card-c>
         <span slot="header">${title}</span>
         <img src=${logo} class="logo" slot="logo" >
         <img src=${images[0]} slot="picture" />
         <span slot="description">${description}</span>
+        <span slot="gains">${skillsGained}</span>
         <img src=${images[1]} slot="mobile" alt="Vite logo" />
         <div slot="techstack" id="techstack">${techStacks.reduce(
           (a, b) => a + `<span>${b}</span>`,
@@ -37,6 +40,12 @@ export class Portfolio extends HTMLElement {
         <a slot="liveweb" href=${liveWebsite}>view live website</a>
         <a slot="github" href=${githubLink} class="secondary">github repository</a>
         </card-c>`;
+
+          const links =
+            worksElement.querySelectorAll<HTMLAnchorElement>('span a');
+          links.forEach((link, i) => {
+            link.setAttribute('data-link', linksToolTipData[i]);
+          });
         }
       );
   }
@@ -46,6 +55,25 @@ customElements.define('card-c', Card);
 template.innerHTML = `
   <style>
 
+    a {
+      position: relative;
+    }
+    a::before {
+      position: absolute;
+      content: attr(data-link);
+      width: 300px;
+      z-index: 3;
+      padding: .5rem;
+      border-radius: .4rem;
+      background: #ffd;
+      color: #000;
+      top:100%;
+      visibility: hidden;
+    }
+
+    a:hover::before {
+      visibility: visible;
+    }
 
     h2 {
         font-size: 2em;
@@ -53,8 +81,10 @@ template.innerHTML = `
     }
 
     a {
-      border-radius: .4rem;
       color: inherit;
+    }
+    a:not(.link) {
+      border-radius: .4rem;
       padding: 0.6em 1.2em;
       font-size: 1em;
       font-weight: 500;
@@ -92,8 +122,21 @@ template.innerHTML = `
       margin: .5rem;
 
     }
+    #techstack span {
+      border-radius: .4rem;
+      border: 1px solid transparent;
+      padding: 0.2em .6em;
+      font-size: .8em;
+      background-color: var(--bg-transparent);
+      display: inline-block;
+      margin: .5rem;
+
+    }
   </style>
   <section>
+  <h2>Crafting Digital Experiences</h2>
+  <p>I specialize in creating cohesive, efficient, and effective web applications that seamlessly integrate front-end and back-end technologies. My deep understanding of both development areas allows me to deliver robust applications with exceptional user experiences.</p>
+  <div class="works"></div>
   <h2>Crafting Digital Experiences</h2>
   <p>I specialize in creating cohesive, efficient, and effective web applications that seamlessly integrate front-end and back-end technologies. My deep understanding of both development areas allows me to deliver robust applications with exceptional user experiences.</p>
   <div class="works"></div>

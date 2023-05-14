@@ -4,9 +4,11 @@ import './style.css';
 const app = document.querySelector<HTMLDivElement>('#app');
 if (app != null)
   app.innerHTML = `
-  <div class="container">
     <header-c></header-c>
    
+    <section class="hero">
+        <article>
+        <h1>Creative web developer and designer</h1>
     <section class="hero">
         <article>
         <h1>Creative web developer and designer</h1>
@@ -18,12 +20,15 @@ if (app != null)
         <image class="illustration" src="/greating.png" />
 
         </section>
+        <button-c>My Creative Journey</button-c>
+        </article>
+        <image class="illustration" src="/greating.png" />
+
+        </section>
         <div class="skills">
           <skillslider-c></skillslider-c>
     </div>
     <portfolio-c></portfolio-c>
-    </div>
-  </div>
 `;
 
 customElements.define('header-c', Header);
