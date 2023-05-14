@@ -75,9 +75,6 @@ h1 {
 
 #app {
   max-width: 1280px;
-}
-
-.container {
   width: min(100ch, 100% - 4rem);
   margin-inline: auto;
 }
@@ -112,22 +109,6 @@ h1 {
 }
 /* Hero section */
 
-/* skills */
-.skills {
-  overflow: hidden;
-  margin-top: 4rem;
-}
-
-.skills p {
-  display: flex;
-  animation: skills 30s linear 2s infinite;
-}
-@keyframes skills {
-  to {
-    transform: translateX(-100%);
-  }
-}
-/* skills */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

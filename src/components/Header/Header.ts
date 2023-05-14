@@ -2,7 +2,6 @@ import { Nav } from './Nav';
 import { ThemeToggler } from './ThemeToggler';
 
 const template = document.createElement('template');
-ThemeToggler;
 export class Header extends HTMLElement {
   constructor() {
     super();
