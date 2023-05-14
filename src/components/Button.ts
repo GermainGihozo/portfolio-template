@@ -7,7 +7,7 @@ export class Button extends HTMLElement {
     this.shadowRoot?.appendChild(template.content.cloneNode(true));
   }
 
-  connectedCallback() {
+  connectedCallback(): void {
     const hasOutline = this.getAttribute('outline') === 'true';
     const btn = this.shadowRoot?.querySelector('button');
     if (btn != null) {

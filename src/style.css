@@ -16,6 +16,7 @@
 
 :root {
   --bg-transparent: #f3bb2e4f;
+  --primary-clr-transparent: #be34fe23;
 }
 
 [data-theme='light'] {
@@ -103,9 +104,21 @@ h1 {
 /* Hero section */
 .hero {
   margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 70% auto;
+}
+.hero {
+  flex: 1;
 }
 .hero * {
   margin-block: 0.7rem;
+}
+.illustration {
+  transform: translateY(-20%);
+  width: 100%;
+  pointer-events: none;
+  filter: hue-rotate(20deg);
+  z-index: 1;
 }
 /* Hero section */
 
@@ -117,13 +130,19 @@ h1 {
   a:hover {
     color: #747bff;
   }
-  /* button {
-    background-color: #f9f9f9;
-  } */
 }
 
 @media (max-width: 400px) {
   body {
     text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .illustration {
+    display: none;
+  }
+  .hero {
+    grid-template-columns: 1fr;
   }
 }

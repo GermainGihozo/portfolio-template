@@ -7,7 +7,7 @@ export class NavToggler extends HTMLElement {
     this.shadowRoot?.appendChild(template.content.cloneNode(true));
   }
 
-  connectedCallback() {
+  connectedCallback(): void {
     this.shadowRoot?.addEventListener('click', () => {
       this.shadowRoot
         ?.querySelector('#nav-toggler')
