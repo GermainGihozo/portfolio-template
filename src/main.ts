@@ -14,7 +14,7 @@ if (app != null)
           </p>
           <button-c>My Creative Journey</button-c>
         </article>
-        <image class="illustration" src="/greating.png" />
+        <image class="illustration" src="/greating.webp" />
         </section>
         <div class="skills">
           <skillslider-c></skillslider-c>
