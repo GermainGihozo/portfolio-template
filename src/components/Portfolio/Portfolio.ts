@@ -1,5 +1,5 @@
 import { Card } from './Card';
-import { projects, projects } from './projects';
+import { projects } from './projects';
 
 const template = document.createElement('template');
 
@@ -25,8 +25,9 @@ export class Portfolio extends HTMLElement {
           techStacks,
           skillsGained,
           linksToolTipData,
+          id,
         }) => {
-          worksElement.innerHTML += `<card-c>
+          worksElement.innerHTML += `<card-c id="card-${id}">
         <span slot="header">${title}</span>
         <img src=${logo} class="logo" slot="logo" >
         <img src=${images[0]} slot="picture" />
@@ -41,10 +42,21 @@ export class Portfolio extends HTMLElement {
         <a slot="github" href=${githubLink} class="secondary">github repository</a>
         </card-c>`;
 
-          const links =
-            worksElement.querySelectorAll<HTMLAnchorElement>('span a');
-          links.forEach((link, i) => {
-            link.setAttribute('data-link', linksToolTipData[i]);
+          const linkInDescription =
+            worksElement.querySelectorAll<HTMLAnchorElement>(
+              `card-c#card-${id} span[slot="description"] a`
+            );
+
+          linkInDescription.forEach((link, i) => {
+            link.setAttribute('data-link', linksToolTipData.description[i]);
+          });
+
+          const linkInGains = worksElement.querySelectorAll<HTMLAnchorElement>(
+            `card-c#card-${id} span[slot="gains"] a`
+          );
+
+          linkInGains.forEach((link, i) => {
+            link.setAttribute('data-link', linksToolTipData.skillsGained[i]);
           });
         }
       );
@@ -55,10 +67,10 @@ customElements.define('card-c', Card);
 template.innerHTML = `
   <style>
 
-    a {
+  span[slot="gains"] a, span[slot="description"] a {
       position: relative;
     }
-    a::before {
+    span[slot="gains"] a::before, span[slot="description"] a::before {
       position: absolute;
       content: attr(data-link);
       width: 300px;
@@ -71,7 +83,7 @@ template.innerHTML = `
       visibility: hidden;
     }
 
-    a:hover::before {
+    span[slot="gains"] a:hover::before, span[slot="description"] a:hover::before {
       visibility: visible;
     }
 
@@ -134,9 +146,6 @@ template.innerHTML = `
     }
   </style>
   <section>
-  <h2>Crafting Digital Experiences</h2>
-  <p>I specialize in creating cohesive, efficient, and effective web applications that seamlessly integrate front-end and back-end technologies. My deep understanding of both development areas allows me to deliver robust applications with exceptional user experiences.</p>
-  <div class="works"></div>
   <h2>Crafting Digital Experiences</h2>
   <p>I specialize in creating cohesive, efficient, and effective web applications that seamlessly integrate front-end and back-end technologies. My deep understanding of both development areas allows me to deliver robust applications with exceptional user experiences.</p>
   <div class="works"></div>

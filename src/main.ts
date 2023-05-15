@@ -8,27 +8,18 @@ if (app != null)
    
     <section class="hero">
         <article>
-        <h1>Creative web developer and designer</h1>
-    <section class="hero">
-        <article>
-        <h1>Creative web developer and designer</h1>
-        <p class="text-mute">
-        As a highly organized and detail-oriented programmer and designer, Muslim is always striving to improve his skills and creativity. His passion for learning and collaborating with individuals and teams of all sizes and levels of creativity drives him forward.
-        </p>
-        <button-c>My Creative Journey</button-c>
+          <h1>Creative web developer and designer</h1>
+          <p class="text-mute">
+          As a highly organized and detail-oriented programmer and designer, Muslim is always striving to improve his skills and creativity. His passion for learning and collaborating with individuals and teams of all sizes and levels of creativity drives him forward.
+          </p>
+          <button-c>My Creative Journey</button-c>
         </article>
         <image class="illustration" src="/greating.png" />
-
-        </section>
-        <button-c>My Creative Journey</button-c>
-        </article>
-        <image class="illustration" src="/greating.png" />
-
         </section>
         <div class="skills">
           <skillslider-c></skillslider-c>
-    </div>
-    <portfolio-c></portfolio-c>
+        </div>
+        <portfolio-c></portfolio-c>
 `;
 
 customElements.define('header-c', Header);
