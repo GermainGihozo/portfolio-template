@@ -63,8 +63,10 @@ a:hover {
   color: #535bf2;
 }
 
+html {
+  max-height: 100vh;
+}
 body {
-  margin: 0;
   background-color: var(--body-bg);
   color: var(--text-clr);
 }
@@ -86,9 +88,11 @@ h1 {
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vanilla:hover {
   filter: drop-shadow(0 0 2em #3178c6aa);
 }
@@ -107,12 +111,11 @@ h1 {
   display: grid;
   grid-template-columns: 70% auto;
 }
-.hero {
-  flex: 1;
-}
+
 .hero * {
   margin-block: 0.7rem;
 }
+
 .illustration {
   transform: translateY(-20%);
   width: 100%;
