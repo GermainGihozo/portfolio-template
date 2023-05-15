@@ -33,8 +33,6 @@ template.innerHTML = `
 
     article {
       background-color: var(--primary-clr-transparent);
-    article {
-      background-color: var(--primary-clr-transparent);
       border-radius: .4rem;
       padding: 1.2rem;
       padding-bottom: 0;
@@ -50,12 +48,12 @@ template.innerHTML = `
   <section>
   <h2><slot name="header"></slot></h2>
     <div>
-    <article>
-    <slot name="logo"></slot>
-    <p><slot name="description"></slot></p>
-    <slot name="picture"></slot>
-    <slot name="github"></slot>
-    </article>
+      <article>
+      <slot name="logo"></slot>
+      <p><slot name="description"></slot></p>
+      <slot name="picture"></slot>
+      <slot name="github"></slot>
+      </article>
     <div>
     <slot name="mobile"></slot>
     <p><slot name="gains"></slot></p>
