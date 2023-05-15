@@ -1,5 +1,6 @@
 const template = document.createElement('template');
 const root = document.querySelector('html') as HTMLHtmlElement;
+const theme = localStorage.getItem('theme');
 export class ThemeToggler extends HTMLElement {
   constructor() {
     super();
@@ -8,10 +9,17 @@ export class ThemeToggler extends HTMLElement {
   }
 
   connectedCallback(): void {
+    const prefersDark = window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    ).matches;
+
+    root.dataset.theme = theme ?? (prefersDark ? 'dark' : 'light');
     this.shadowRoot?.addEventListener('click', () => {
       this.shadowRoot?.querySelector('#sun')?.classList.toggle('hide');
       this.shadowRoot?.querySelector('#moon')?.classList.toggle('hide');
-      root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      const themeValue = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = themeValue;
+      localStorage.setItem('theme', themeValue);
     });
   }
 }
