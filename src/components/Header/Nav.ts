@@ -76,7 +76,8 @@ template.innerHTML = `
   <ul>
     <li><a href="/#">Home</a></li>
     <li><a href="/#portfolio">work</a></li>
-    <li><a href="/#contacts">contacts</a></li>
     <li><a href="/#">skills</a></li>
+    <li><a href="/#contacts">contacts</a></li>
+    <li><a href="/#">blog</a></li>
   </ul>
 `;
