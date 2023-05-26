@@ -35,9 +35,9 @@ export class Portfolio extends HTMLElement {
         <span slot="gains">${skillsGained}</span>
         <img src=${images[1]} slot="mobile" alt="Vite logo" />
         <div slot="techstack" id="techstack">${techStacks.reduce(
-          (a, b) => a + `<span>${b}</span>`,
-          ''
-        )}</div>
+            (a, b) => a + `<span>${b}</span>`,
+            ''
+          )}</div>
         <a slot="liveweb" href=${liveWebsite}>view live website</a>
         <a slot="github" href=${githubLink} class="secondary">github repository</a>
         </card-c>`;
@@ -85,6 +85,11 @@ template.innerHTML = `
 
     span[slot="gains"] a:hover::before, span[slot="description"] a:hover::before {
       visibility: visible;
+    }
+
+    span[slot="gains"] a::after, span[slot="description"] a::after {
+      content: url(/link.svg);
+      margin-left: .3rem;
     }
 
     h2 {
@@ -143,6 +148,16 @@ template.innerHTML = `
       display: inline-block;
       margin: .5rem;
 
+    }
+
+    section {
+      margin-top: 5rem;
+
+    }
+    @media (max-width: 600px) {
+      section {
+        text-align: center;
+      }
     }
   </style>
   <section>
