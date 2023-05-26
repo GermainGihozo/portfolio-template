@@ -12,22 +12,14 @@ export class Card extends HTMLElement {
 
 template.innerHTML = `
   <style>
+
     section {
       margin-block: 4rem;
     }
 
     section > div {
       display: grid;
-      grid-template-columns: 50% auto auto;
-      gap: .5rem;
-    }
-    section {
-      margin-block: 4rem;
-    }
-
-    section > div {
-      display: grid;
-      grid-template-columns: 50% auto auto;
+      grid-template-columns: 50% auto;
       gap: .5rem;
     }
 
@@ -42,7 +34,13 @@ template.innerHTML = `
       margin-block: 0;
     }
 
+    @media (max-width: 600px) {
+      section > div {
+        text-align: center;
+      grid-template-columns: auto;
 
+      }
+    }
 
   </style>
   <section>
@@ -60,7 +58,6 @@ template.innerHTML = `
     <h3>Tech stacks</h3>
     <slot name="techstack"></slot>
     <slot name="liveweb"></slot>
-    </div>
     </div>
   </section>
 `;

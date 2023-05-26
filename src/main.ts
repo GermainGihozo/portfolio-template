@@ -1,4 +1,6 @@
-import { Button, Header, Portfolio, SkillsSlider } from './components/index.ts';
+import { Aboutme } from './components/Aboutme.ts';
+import { Footer } from './components/Footer.ts';
+import { Button, Header, Portfolio } from './components/index.ts';
 import './style.css';
 
 const app = document.querySelector<HTMLDivElement>('#app');
@@ -16,13 +18,13 @@ if (app != null)
         </article>
         <image class="illustration" src="/greating.webp" />
         </section>
-        <div class="skills">
-          <skillslider-c></skillslider-c>
-        </div>
         <portfolio-c></portfolio-c>
+        <about-c></about-c>
+        <footer-c></footer-c>
 `;
 
 customElements.define('header-c', Header);
 customElements.define('portfolio-c', Portfolio);
 customElements.define('button-c', Button);
-customElements.define('skillslider-c', SkillsSlider);
+customElements.define('about-c', Aboutme);
+customElements.define('footer-c', Footer);

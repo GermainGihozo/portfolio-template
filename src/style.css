@@ -2,10 +2,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  overflow-x: hidden;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -59,6 +56,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -66,6 +64,7 @@ a:hover {
 html {
   max-height: 100vh;
 }
+
 body {
   background-color: var(--body-bg);
   color: var(--text-clr);
@@ -110,6 +109,7 @@ h1 {
   margin-top: 4rem;
   display: grid;
   grid-template-columns: 70% auto;
+  align-items: center;
 }
 
 .hero * {
@@ -123,6 +123,7 @@ h1 {
   filter: hue-rotate(20deg);
   z-index: 1;
 }
+
 /* Hero section */
 
 @media (prefers-color-scheme: light) {
@@ -130,6 +131,7 @@ h1 {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
@@ -145,7 +147,13 @@ h1 {
   .illustration {
     display: none;
   }
+
   .hero {
     grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero .text-mute {
+    margin-block: 1.5rem;
   }
 }
