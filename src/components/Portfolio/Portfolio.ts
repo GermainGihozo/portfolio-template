@@ -35,9 +35,9 @@ export class Portfolio extends HTMLElement {
         <span slot="gains">${skillsGained}</span>
         <img src=${images[1]} slot="mobile" alt="Vite logo" />
         <div slot="techstack" id="techstack">${techStacks.reduce(
-            (a, b) => a + `<span>${b}</span>`,
-            ''
-          )}</div>
+          (a, b) => a + `<span>${b}</span>`,
+          ''
+        )}</div>
         <a slot="liveweb" href=${liveWebsite}>view live website</a>
         <a slot="github" href=${githubLink} class="secondary">github repository</a>
         </card-c>`;
