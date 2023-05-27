@@ -67,7 +67,8 @@ template.innerHTML = `
         <h3>About me.</h3>
         <p>Lorem ipsum dolor sit amet consectetur <a href="/success">adipisicing</a> elit. Minima temporibus placeat expedita repellat laborum quod laboriosam, omnis eos non aliquid eveniet debitis aperiam consectetur facilis labore sunt eaque nam cum.</p>
         </div>
-        <img src="/profile.jpg" >
+        <img src="https://avatars.githubusercontent.com/u/103575700?v=4" >
+
         <div>
         <h3>Experience.</h3>
 
