@@ -1,7 +1,4 @@
-// import github from '../../../../../../../../../profile.jpg';
-
 const template = document.createElement('template');
-
 export class Card extends HTMLElement {
   constructor() {
     super();

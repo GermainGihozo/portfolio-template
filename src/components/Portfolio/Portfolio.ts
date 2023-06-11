@@ -38,8 +38,8 @@ export class Portfolio extends HTMLElement {
           (a, b) => a + `<span>${b}</span>`,
           ''
         )}</div>
-        <a slot="liveweb" href=${liveWebsite}>view live website</a>
-        <a slot="github" href=${githubLink} class="secondary">github repository</a>
+        <a class="secondary" slot="liveweb" href=${liveWebsite}>view live website</a>
+        <a slot="github" href=${githubLink} >github repository</a>
         </card-c>`;
 
           const linkInDescription =
@@ -108,8 +108,11 @@ template.innerHTML = `
       font-family: inherit;
       text-decoration: none;
       margin-top: .5rem;
-      background-color: var(--primary-clr-transparent);
       display: inline-block;
+    }
+
+    a:not(.secondary, a.link) {
+      background-color: var(--primary-clr-transparent);
     }
 
     .secondary {
@@ -126,7 +129,7 @@ template.innerHTML = `
       width: 34px;
     }
     #techstack {
-      margin-top: 1rem;
+      margin-top: .5rem;
     }
 
     #techstack span {
@@ -136,18 +139,11 @@ template.innerHTML = `
       font-size: .8em;
       background-color: var(--bg-transparent);
       display: inline-block;
-      margin: .5rem;
+      margin: .2rem;
 
     }
-    #techstack span {
-      border-radius: .4rem;
-      border: 1px solid transparent;
-      padding: 0.2em .6em;
-      font-size: .8em;
-      background-color: var(--bg-transparent);
-      display: inline-block;
-      margin: .5rem;
-
+    #techstack span:nth-child(1) {
+      margin-left: 0;
     }
 
     section {
