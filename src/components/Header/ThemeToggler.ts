@@ -14,13 +14,15 @@ export class ThemeToggler extends HTMLElement {
     ).matches;
 
     root.dataset.theme = theme ?? (prefersDark ? 'dark' : 'light');
-    this.shadowRoot?.addEventListener('click', () => {
-      this.shadowRoot?.querySelector('#sun')?.classList.toggle('hide');
-      this.shadowRoot?.querySelector('#moon')?.classList.toggle('hide');
-      const themeValue = root.dataset.theme === 'dark' ? 'light' : 'dark';
-      root.dataset.theme = themeValue;
-      localStorage.setItem('theme', themeValue);
-    });
+    this.shadowRoot
+      ?.querySelector('.theme-toggler')
+      ?.addEventListener('click', () => {
+        this.shadowRoot?.querySelector('#sun')?.classList.toggle('hide');
+        this.shadowRoot?.querySelector('#moon')?.classList.toggle('hide');
+        const themeValue = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = themeValue;
+        localStorage.setItem('theme', themeValue);
+      });
   }
 }
 
