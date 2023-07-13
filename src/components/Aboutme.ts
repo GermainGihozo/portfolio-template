@@ -1,5 +1,3 @@
-import { SkillsSlider } from '.';
-
 const template = document.createElement('template');
 
 export class Aboutme extends HTMLElement {
@@ -10,13 +8,12 @@ export class Aboutme extends HTMLElement {
   }
 }
 
-customElements.define('skillslider-c', SkillsSlider);
-
 template.innerHTML = `
     <style>
     article {
             display: grid;
-            grid-template-columns: auto 15% auto;
+            grid-template-columns: auto 25%;
+            align-items: center;
             gap: 1rem;
         }
         
@@ -26,7 +23,6 @@ template.innerHTML = `
         }
 
         img {
-            border-radius: 50%;
             aspect-ratio: 1;
             width: 100%;
             object-fit: cover;
@@ -64,22 +60,18 @@ template.innerHTML = `
         <h2>Who I am!</h2>
         <article>
         <div>
-        <h3>About me.</h3>
-        <p>Lorem ipsum dolor sit amet consectetur <a href="/success">adipisicing</a> elit. Minima temporibus placeat expedita repellat laborum quod laboriosam, omnis eos non aliquid eveniet debitis aperiam consectetur facilis labore sunt eaque nam cum.</p>
-        </div>
-        <img src="https://avatars.githubusercontent.com/u/103575700?v=4" >
-
-        <div>
-        <h3>Experience.</h3>
-
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima temporibus placeat expedita repellat laborum quod laboriosam, omnis eos non aliquid eveniet debitis aperiam consectetur facilis labore sunt eaque nam cum.</p>
+        <h3>Hi, I am UWITONDANISHEMA Muslim</h3>
+        <p>A highly organized and detail-oriented programmer and designer with 2 years of experience.</p>
+        <p>I specialize in creating cohesive, efficient, and effective web applications that seamlessly integrate front-end and back-end technologies. My deep understanding of both development areas allows me to deliver robust applications with exceptional user experiences.
+        </p>
+        <p>I have gained alot of experience from working with small teams and gained awards from my <a href="/success">innovative projects</a>.</p>
         <a href="/resume.pdf">
         <button-c>my resume</button-c>
         </a>
         </div>
+        <img src="https://avatars.githubusercontent.com/u/103575700?v=4" >
         </article>
         <div class="skills">
-        <skillslider-c></skillslider-c>
       </div>
     </section>
 `;

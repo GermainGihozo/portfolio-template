@@ -20,20 +20,20 @@ template.innerHTML = `
 <style>
 button {
     border-radius: 8px;
-    border: 1px solid transparent;
+    border: none;
     padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
     cursor: pointer;
-    transition: border-color 0.25s;
+    transition: transform 0.25s;
   }
   button:hover {
-    border-color: #bd34fe;
+    transform: scale(.99);
   }
   button:focus,
   button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
+    transform: scale(.99);
   }
 </style>
 
