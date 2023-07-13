@@ -25,8 +25,9 @@ header {
   }
 
   span {
-  font-size: 2.2em;
+  font-size: 1.5em;
   font-weight: bold;
+  user-select: none;
   }
   
 </style>
