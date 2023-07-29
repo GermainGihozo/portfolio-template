@@ -64,7 +64,7 @@ template.innerHTML = `
         <p>A highly organized and detail-oriented programmer and designer with 2 years of experience.</p>
         <p>I specialize in creating cohesive, efficient, and effective web applications that seamlessly integrate front-end and back-end technologies. My deep understanding of both development areas allows me to deliver robust applications with exceptional user experiences.
         </p>
-        <p>I have gained alot of experience from working with small teams and gained awards from my <a href="/success">innovative projects</a>.</p>
+        <p>I have gained alot of experience from working with small teams and gained awards from my <a href="https://twitter.com/IPRC__Ngoma/status/1565622456269824001">innovative projects</a>.</p>
         <a href="/resume.pdf">
         <button-c>my resume</button-c>
         </a>
