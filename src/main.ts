@@ -1,4 +1,5 @@
 import { Aboutme } from './components/Aboutme.ts';
+import { ContactForm } from './components/ContactForm.ts';
 import { Footer } from './components/Footer.ts';
 import { Button, Header, Portfolio } from './components/index.ts';
 import './style.css';
@@ -20,11 +21,13 @@ if (app != null)
         </section>
         <portfolio-c></portfolio-c>
         <about-c></about-c>
-        <footer-c></footer-c>
-`;
+        <contact-c></contact-c>
+        `;
+// <footer-c></footer-c>
 
 customElements.define('header-c', Header);
 customElements.define('portfolio-c', Portfolio);
 customElements.define('button-c', Button);
 customElements.define('about-c', Aboutme);
 customElements.define('footer-c', Footer);
+customElements.define('contact-c', ContactForm);
