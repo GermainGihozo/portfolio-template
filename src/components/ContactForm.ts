@@ -11,7 +11,7 @@ export class ContactForm extends HTMLElement {
 template.innerHTML = `
     <style>
     section {
-          margin-top: 4rem;
+          margin-block: 4rem;
         }
         
         h2 {
@@ -27,7 +27,7 @@ template.innerHTML = `
             border-color: #bd34fe;
             border-radius: 8px;
             outline: none;
-            border-color: transparent;
+            border-color: #747bff;
             transition: border-color .4s;
             // background-color: #fff3;
         }
@@ -47,7 +47,7 @@ template.innerHTML = `
                         <span>Message</span>
                         <textarea placeholder="job offer ..."></textarea>
                     </label>
-                    <button-c>sen message</button-c>
+                    <button-c>send message</button-c>
                 </form>
     </section>
 `;
