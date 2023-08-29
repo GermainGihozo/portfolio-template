@@ -48,18 +48,59 @@ const { title } = Astro.props;
     font-weight: 500;
     font-family: inherit;
     cursor: pointer;
-    transition: transform 0.25s;
+    transition: all 0.25s;
     background-color: #725600;
     color: #fbe296;
     max-width: fit-content;
     text-decoration: none;
     display: block;
   }
-  button:hover {
+  button:hover,
+  .btn:hover {
     transform: scale(0.99);
+    background-color: #a17900;
   }
   button:focus,
   button:focus-visible {
     transform: scale(0.99);
+  }
+
+  p {
+    margin-block: 1rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.4s ease;
+    padding-inline: 0.5rem;
+    position: relative;
+  }
+
+  a.link::before {
+    position: absolute;
+    content: "";
+    height: 0.3rem;
+    width: 0%;
+    transition: width 0.3s;
+    background-color: white;
+    bottom: -0.4rem;
+    left: 0;
+  }
+
+  a.link:hover::before {
+    width: 100%;
+  }
+  a.link {
+    margin-right: 1.5rem;
+  }
+  a.link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0.3rem;
+    height: 0.3rem;
+    translate: 0.2rem;
+    content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHBhdGggZD0iTTMyMCAwYy0xNy43IDAtMzIgMTQuMy0zMiAzMnMxNC4zIDMyIDMyIDMyaDgyLjdMMjAxLjQgMjY1LjRjLTEyLjUgMTIuNS0xMi41IDMyLjggMCA0NS4zczMyLjggMTIuNSA0NS4zIDBMNDQ4IDEwOS4zVjE5MmMwIDE3LjcgMTQuMyAzMiAzMiAzMnMzMi0xNC4zIDMyLTMyVjMyYzAtMTcuNy0xNC4zLTMyLTMyLTMySDMyMHpNODAgMzJDMzUuOCAzMiAwIDY3LjggMCAxMTJWNDMyYzAgNDQuMiAzNS44IDgwIDgwIDgwSDQwMGM0NC4yIDAgODAtMzUuOCA4MC04MFYzMjBjMC0xNy43LTE0LjMtMzItMzItMzJzLTMyIDE0LjMtMzIgMzJWNDMyYzAgOC44LTcuMiAxNi0xNiAxNkg4MGMtOC44IDAtMTYtNy4yLTE2LTE2VjExMmMwLTguOCA3LjItMTYgMTYtMTZIMTkyYzE3LjcgMCAzMi0xNC4zIDMyLTMycy0xNC4zLTMyLTMyLTMySDgweiIvPjwvc3ZnPg==");
   }
 </style>

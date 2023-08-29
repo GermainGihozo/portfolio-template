@@ -1,7 +1,7 @@
 <ul>
-  <li><a href="#portfolio">work</a></li>
-  <li><a href="#about">about me</a></li>
-  <li><a href="#contacts">contacts</a></li>
+  <li><a href="#portfolio" class="link">work</a></li>
+  <li><a href="#about" class="link">about me</a></li>
+  <li><a href="#contacts" class="link">contacts</a></li>
 </ul>
 
 <style>
@@ -12,30 +12,13 @@
     list-style-type: none;
   }
 
-  a {
-    text-decoration: none;
-    border-radius: 7px;
-    color: inherit;
-    font-weight: 400;
-    transition: all 0.4s ease;
-    padding-inline: 0.5rem;
+  a.link {
+    margin-right: 0;
   }
-
-  .active,
-  a:hover {
-    color: var(--nav-text-clr);
-  }
-
-  menu-c {
-    display: none;
-  }
-  .show {
-    display: flex;
+  a.link::after {
+    content: none;
   }
   @media (max-width: 540px) {
-    menu-c {
-      display: flex;
-    }
     ul {
       flex-direction: column;
       z-index: 1;
