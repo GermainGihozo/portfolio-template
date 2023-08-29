@@ -1,0 +1,56 @@
+<ul>
+  <li><a href="#portfolio">work</a></li>
+  <li><a href="#about">about me</a></li>
+  <li><a href="#contacts">contacts</a></li>
+</ul>
+
+<style>
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+  }
+
+  a {
+    text-decoration: none;
+    border-radius: 7px;
+    color: inherit;
+    font-weight: 400;
+    transition: all 0.4s ease;
+    padding-inline: 0.5rem;
+  }
+
+  .active,
+  a:hover {
+    color: var(--nav-text-clr);
+  }
+
+  menu-c {
+    display: none;
+  }
+  .show {
+    display: flex;
+  }
+  @media (max-width: 540px) {
+    menu-c {
+      display: flex;
+    }
+    ul {
+      flex-direction: column;
+      z-index: 1;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      background-color: var(--body-bg);
+      padding: 2rem;
+      padding-top: 0;
+      display: none;
+    }
+
+    li {
+      padding-block: 0.5rem;
+    }
+  }
+</style>

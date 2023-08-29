@@ -1,0 +1,126 @@
+---
+import type { projects } from './projects';
+
+type Props = { project: (typeof projects)[number] };
+
+const {
+  project: {
+    description,
+    title,
+    techStacks,
+    logo,
+    images,
+    liveWebsite,
+    githubLink,
+    skillsGained,
+  },
+} = Astro.props as Props;
+---
+
+<section>
+  <h2>{title}</h2>
+  <div>
+    <article>
+      <img src={logo} class="logo" />
+      <p>{description}</p>
+      <img src={images[0]} />
+      <a class="btn" href={githubLink}>github repository</a>
+    </article>
+    <div class="grid">
+      <img src={images[1]} />
+      <p>{skillsGained}</p>
+      <h3>Tech stacks</h3>
+      <div class="techstack">
+        {techStacks.map((s) => <span>{s}</span>)}
+      </div>
+      <a class="btn" href={liveWebsite}>view live website</a>
+    </div>
+  </div>
+</section>
+<style>
+  h2 {
+    margin-bottom: 2rem;
+  }
+  h3 {
+    margin-block: 1.5rem;
+  }
+
+  .grid {
+    display: grid;
+    gap: 0.7rem;
+  }
+  section {
+    margin-block: 4rem;
+  }
+
+  section > div {
+    display: grid;
+    grid-template-columns: 50% auto;
+    gap: 0.5rem;
+  }
+
+  article {
+    border-radius: 0.4rem;
+    padding: 1.2rem;
+    background-color: #ffda6bcd;
+  }
+  article > * {
+    margin-block: 0.5rem;
+  }
+
+  h3 {
+    margin-block: 0;
+  }
+
+  span a,
+  span a {
+    position: relative;
+  }
+  span a::before,
+  span a::before {
+    position: absolute;
+    content: attr(data-link);
+    width: 300px;
+    z-index: 3;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    background-color: #ffd;
+    color: #000;
+    top: 100%;
+    visibility: hidden;
+  }
+
+  span a:hover::before,
+  span a:hover::before {
+    visibility: visible;
+  }
+
+  span a::after,
+  span a::after {
+    content: url(/link.svg);
+    margin-left: 0.3rem;
+  }
+  span {
+    border-radius: 0.4rem;
+    border: 1px solid transparent;
+    padding: 0.2em 0.6em;
+    font-size: 0.8em;
+    background-color: #f8dd8d;
+    display: inline-block;
+    margin: 0.2rem;
+  }
+  #techstack span:nth-child(1) {
+    margin-left: 0;
+  }
+  img:not(.logo) {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0.4rem;
+  }
+  @media (max-width: 600px) {
+    section > div {
+      text-align: center;
+      grid-template-columns: auto;
+    }
+  }
+</style>

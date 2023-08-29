@@ -1,0 +1,31 @@
+---
+import Index from '../pages/index.astro';
+import Card from './Card.astro';
+import Header from './Header.astro';
+import { projects } from './projects';
+---
+
+<section>
+  <h2>Crafting Digital Experiences</h2>
+  <p>
+    I specialize in creating cohesive, efficient, and effective web applications
+    that seamlessly integrate front-end and back-end technologies. My deep
+    understanding of both development areas allows me to deliver robust
+    applications with exceptional user experiences.
+  </p>
+  <div class="works">
+    {projects.map((project) => <Card project={project} />)}
+  </div>
+</section>
+<style>
+  h2 {
+    font-size: 2em;
+    line-height: 1.1;
+  }
+
+  @media (max-width: 600px) {
+    section {
+      text-align: center;
+    }
+  }
+</style>
