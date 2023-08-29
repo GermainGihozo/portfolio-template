@@ -1,0 +1,26 @@
+---
+import Nav from './Nav.astro';
+import ThemeToggler from './ThemeToggler.astro';
+---
+
+<header>
+  <span>Muslim</span>
+  <Nav />
+  <ThemeToggler />
+</header>
+<style>
+  header {
+    height: 70px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  span {
+    font-size: 2rem;
+    font-weight: bold;
+    user-select: none;
+    color: rgb(255, 255, 255);
+  }
+</style>
