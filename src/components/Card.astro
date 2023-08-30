@@ -8,7 +8,6 @@ const {
     description,
     title,
     techStacks,
-    logo,
     images,
     liveWebsite,
     githubLink,
@@ -21,7 +20,6 @@ const {
   <h2 class="underline">{title}</h2>
   <div>
     <article>
-      <img src={logo} class="logo" />
       {description.map((paragraph) => <p>{paragraph}</p>)}
       <img src={images[0]} />
       <a class="btn" href={githubLink}>github repository</a>
@@ -37,7 +35,49 @@ const {
     </div>
   </div>
 </section>
-<style>
+<script>
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio > 0) {
+          entry.target.classList.add("active");
+        } else {
+          entry.target.classList.remove("active");
+        }
+      });
+    },
+    {
+      rootMargin: "-200px -200px",
+    }
+  );
+
+  const boxElList = document.querySelectorAll("section");
+  boxElList.forEach((el) => {
+    io.observe(el);
+  });
+</script>
+<style lang="scss">
+  section {
+    & article,
+    & .grid {
+      transition: 2s ease;
+      opacity: 0;
+    }
+    & article {
+      transform: translate(-20%, 20%);
+    }
+    & .grid {
+      transform: translate(20%, -20%);
+    }
+    &.active {
+      & article,
+      & .grid {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
+    }
+  }
+
   h2 {
     margin-bottom: 2rem;
   }

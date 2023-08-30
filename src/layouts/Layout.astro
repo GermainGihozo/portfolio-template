@@ -29,13 +29,15 @@ const { title } = Astro.props;
     </footer>
   </body>
 </html>
-<style is:global>
+<style is:global lang="scss">
   html {
     font-family: system-ui, sans-serif;
     background-color: #ffbf00;
     color: #574100;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
+
   ::selection {
     background-color: #c09000;
     color: white;

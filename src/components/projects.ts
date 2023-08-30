@@ -1,7 +1,6 @@
 export const projects = [
   {
     id: 1,
-    logo: "/vite.svg",
     title: "E-comerce Rest API",
     description: [
       "This is Restfull API that can help user to purchase products, they can choose the product an pay them with their prefered payment method.  The admin of the app can add new products, remove them and update them.",
@@ -29,7 +28,6 @@ export const projects = [
   },
   {
     id: 2,
-    logo: "/vite.svg",
     title: "E-comerce Front-end",
     description: [
       "This is the front-end of above ecommerce API, it has the main features of ecommerce web application like product listing, adding and removing products to cart and payment. adding new product in store and removing them and much more.",
@@ -58,7 +56,6 @@ export const projects = [
   },
   {
     id: 3,
-    logo: "/vite.svg",
     title: "Personal blog Rest API",
     description: [
       "User can create and read blog posts, comment on blog posts and like them, they can also like comments. except reading a blog post all other action require user to be registered and loged in.",
