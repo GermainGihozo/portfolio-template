@@ -1,0 +1,59 @@
+<section class="full-h">
+  <article>
+    <h2 class="underline">Let's get in touch</h2>
+    <p>
+      Contact me, Do you have a project? I usualy respond in less than 3 hours
+      in working days.
+    </p>
+
+    <form action="" method="post">
+      <div>
+        <label for="email"><strong>Email</strong></label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          required
+          minlength="7"
+          maxlength="25"
+        />
+      </div>
+      <div>
+        <label for="message"><strong>Message</strong></label>
+        <textarea
+          name="message"
+          id="message"
+          required
+          minlength="20"
+          maxlength="700"></textarea>
+      </div>
+      <button>send message</button>
+    </form>
+  </article>
+</section>
+
+<style>
+  .full-h {
+    display: flex;
+    align-items: center;
+    min-height: calc(100dvh - 70px);
+  }
+
+  form,
+  form > div {
+    display: grid;
+    gap: 1rem;
+  }
+  form > div {
+    gap: 0.5rem;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  input,
+  textarea {
+    outline-color: #f8dd8d;
+    font: inherit;
+    padding: 1rem;
+  }
+</style>

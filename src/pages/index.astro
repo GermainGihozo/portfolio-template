@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Portfolio from "../components/Portfolio.astro";
 import Aboutme from "../components/Aboutme.astro";
+import Contact from "../components/Contact.astro";
 ---
 
 <Layout title="Highly organized and detail-oriented programmer and designer.">
@@ -16,12 +17,13 @@ import Aboutme from "../components/Aboutme.astro";
         passion for learning and collaborating with individuals and teams of all
         sizes and levels of creativity drives him forward.
       </p>
-      <button>My Creative Journey</button>
+      <a class="btn" href="#work">My Creative Journey</a>
     </article>
     <img class="illustration" src="/greating.webp" />
   </main>
   <Portfolio />
   <Aboutme />
+  <Contact />
 </Layout>
 
 <style>

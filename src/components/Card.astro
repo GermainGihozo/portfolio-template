@@ -1,5 +1,5 @@
 ---
-import type { projects } from './projects';
+import type { projects } from "./projects";
 
 type Props = { project: (typeof projects)[number] };
 
@@ -18,11 +18,11 @@ const {
 ---
 
 <section>
-  <h2>{title}</h2>
+  <h2 class="underline">{title}</h2>
   <div>
     <article>
       <img src={logo} class="logo" />
-      <p>{description}</p>
+      {description.map((paragraph) => <p>{paragraph}</p>)}
       <img src={images[0]} />
       <a class="btn" href={githubLink}>github repository</a>
     </article>
@@ -100,15 +100,7 @@ const {
     content: url(/link.svg);
     margin-left: 0.3rem;
   }
-  span {
-    border-radius: 0.4rem;
-    border: 1px solid transparent;
-    padding: 0.2em 0.6em;
-    font-size: 0.8em;
-    background-color: #f8dd8d;
-    display: inline-block;
-    margin: 0.2rem;
-  }
+
   #techstack span:nth-child(1) {
     margin-left: 0;
   }

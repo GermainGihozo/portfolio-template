@@ -10,14 +10,23 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta
+      name="description"
+      content="I specialize in creating cohesive, efficient, and effective web applications that seamlessly integrate front-end and back-end technologies. My deep understanding of both development areas allows me to deliver robust applications with exceptional user experiences."
+    />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/logo.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
     <slot />
+    <footer>
+      <p>
+        I love creativity, creativity is my culture. &copy; muslim
+        uwitondanishema {new Date().getFullYear()}
+      </p>
+    </footer>
   </body>
 </html>
 <style is:global>
@@ -25,6 +34,11 @@ const { title } = Astro.props;
     font-family: system-ui, sans-serif;
     background-color: #ffbf00;
     color: #574100;
+    scroll-behavior: smooth;
+  }
+  ::selection {
+    background-color: #c09000;
+    color: white;
   }
 
   body {
@@ -69,15 +83,24 @@ const { title } = Astro.props;
     margin-block: 1rem;
   }
 
-  a {
+  a,
+  .underline {
     text-decoration: none;
     color: inherit;
     transition: all 0.4s ease;
     padding-inline: 0.5rem;
     position: relative;
   }
+  a,
+  button {
+    outline-color: #f8dd8dc8;
+  }
 
-  a.link::before {
+  .underline {
+    padding-inline: 0;
+  }
+  a.link::before,
+  .underline::before {
     position: absolute;
     content: "";
     height: 0.3rem;
@@ -88,19 +111,35 @@ const { title } = Astro.props;
     left: 0;
   }
 
+  .underline::before {
+    width: 5%;
+    height: 1rem;
+    border-radius: 100vmax;
+    background-color: rgba(255, 255, 255, 0.435);
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -120%);
+    z-index: -1;
+  }
+
   a.link:hover::before {
     width: 100%;
   }
-  a.link {
-    margin-right: 1.5rem;
+
+  span,
+  input,
+  textarea {
+    border-radius: 0.4rem;
+    border: 1px solid transparent;
+    padding: 0.2em 0.6em;
+    font-size: 0.8em;
+    background-color: #f8dd8d;
+    display: inline-block;
+    margin: 0.2rem;
   }
-  a.link::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0.3rem;
-    height: 0.3rem;
-    translate: 0.2rem;
-    content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHBhdGggZD0iTTMyMCAwYy0xNy43IDAtMzIgMTQuMy0zMiAzMnMxNC4zIDMyIDMyIDMyaDgyLjdMMjAxLjQgMjY1LjRjLTEyLjUgMTIuNS0xMi41IDMyLjggMCA0NS4zczMyLjggMTIuNSA0NS4zIDBMNDQ4IDEwOS4zVjE5MmMwIDE3LjcgMTQuMyAzMiAzMiAzMnMzMi0xNC4zIDMyLTMyVjMyYzAtMTcuNy0xNC4zLTMyLTMyLTMySDMyMHpNODAgMzJDMzUuOCAzMiAwIDY3LjggMCAxMTJWNDMyYzAgNDQuMiAzNS44IDgwIDgwIDgwSDQwMGM0NC4yIDAgODAtMzUuOCA4MC04MFYzMjBjMC0xNy43LTE0LjMtMzItMzItMzJzLTMyIDE0LjMtMzIgMzJWNDMyYzAgOC44LTcuMiAxNi0xNiAxNkg4MGMtOC44IDAtMTYtNy4yLTE2LTE2VjExMmMwLTguOCA3LjItMTYgMTYtMTZIMTkyYzE3LjcgMCAzMi0xNC4zIDMyLTMycy0xNC4zLTMyLTMyLTMySDgweiIvPjwvc3ZnPg==");
+
+  footer {
+    margin-block: 4rem;
+    text-align: center;
   }
 </style>

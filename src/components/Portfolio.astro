@@ -1,11 +1,11 @@
 ---
-import Index from '../pages/index.astro';
-import Card from './Card.astro';
-import Header from './Header.astro';
-import { projects } from './projects';
+import Index from "../pages/index.astro";
+import Card from "./Card.astro";
+import Header from "./Header.astro";
+import { projects } from "./projects";
 ---
 
-<section>
+<section id="work">
   <h2>Crafting Digital Experiences</h2>
   <p>
     I specialize in creating cohesive, efficient, and effective web applications
@@ -18,6 +18,9 @@ import { projects } from './projects';
   </div>
 </section>
 <style>
+  section {
+    padding-top: 4rem;
+  }
   h2 {
     font-size: 2em;
     line-height: 1.1;
