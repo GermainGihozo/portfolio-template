@@ -30,10 +30,7 @@ export const projects = [
     description: [
       "This is the front-end of above ecommerce API, it has the main features of ecommerce web application like product listing, adding and removing products to cart and payment. adding new product in store and removing them and much more.",
     ],
-    images: [
-      "https://cdn.dribbble.com/userupload/6970046/file/original-c5697e287d243d0fcd9bb89db41ba5e8.png?compress=1&resize=1024x735",
-      "https://cdn.dribbble.com/userupload/6968359/file/original-ef3dc98af34d859ac1e8edb594ace1c0.png?compress=1&resize=1024x768",
-    ],
+    images: ["/Cards.png", "/Home.png"],
     githubLink: "https://github.com/atlp-rwanda/e-comm-team-axel25-fe",
     liveWebsite: "https://team-cypher-ecom-main.netlify.app/",
     techStacks: [
