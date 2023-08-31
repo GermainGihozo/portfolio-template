@@ -10,10 +10,8 @@ export const projects = [
       "https://cdn.dribbble.com/userupload/6970046/file/original-c5697e287d243d0fcd9bb89db41ba5e8.png?compress=1&resize=1024x735",
       "https://cdn.dribbble.com/userupload/6968359/file/original-ef3dc98af34d859ac1e8edb594ace1c0.png?compress=1&resize=1024x768",
     ],
-    githubLink:
-      "https://cdn.dribbble.com/userupload/6968359/file/original-ef3dc98af34d859ac1e8edb594ace1c0.png?compress=1&resize=1024x768",
-    liveWebsite:
-      "https://cdn.dribbble.com/userupload/6968359/file/original-ef3dc98af34d859ac1e8edb594ace1c0.png?compress=1&resize=1024x768",
+    githubLink: "https://github.com/atlp-rwanda/e-comm-team-axel25-bn",
+    liveWebsite: "https://cypherapi.onrender.com/docs/",
     techStacks: [
       "Typescript",
       "expressjs",
@@ -36,10 +34,8 @@ export const projects = [
       "https://cdn.dribbble.com/userupload/6970046/file/original-c5697e287d243d0fcd9bb89db41ba5e8.png?compress=1&resize=1024x735",
       "https://cdn.dribbble.com/userupload/6968359/file/original-ef3dc98af34d859ac1e8edb594ace1c0.png?compress=1&resize=1024x768",
     ],
-    githubLink:
-      "https://cdn.dribbble.com/userupload/6968359/file/original-ef3dc98af34d859ac1e8edb594ace1c0.png?compress=1&resize=1024x768",
-    liveWebsite:
-      "https://cdn.dribbble.com/userupload/6968359/file/original-ef3dc98af34d859ac1e8edb594ace1c0.png?compress=1&resize=1024x768",
+    githubLink: "https://github.com/atlp-rwanda/e-comm-team-axel25-fe",
+    liveWebsite: "https://team-cypher-ecom-main.netlify.app/",
     techStacks: [
       "React",
       "TypeScript",
@@ -64,10 +60,8 @@ export const projects = [
       "https://cdn.dribbble.com/userupload/6970046/file/original-c5697e287d243d0fcd9bb89db41ba5e8.png?compress=1&resize=1024x735",
       "https://cdn.dribbble.com/userupload/6968359/file/original-ef3dc98af34d859ac1e8edb594ace1c0.png?compress=1&resize=1024x768",
     ],
-    githubLink:
-      "https://cdn.dribbble.com/userupload/6968359/file/original-ef3dc98af34d859ac1e8edb594ace1c0.png?compress=1&resize=1024x768",
-    liveWebsite:
-      "https://cdn.dribbble.com/userupload/6968359/file/original-ef3dc98af34d859ac1e8edb594ace1c0.png?compress=1&resize=1024x768",
+    githubLink: "https://github.com/musllim/my_brand_be",
+    liveWebsite: "https://my-brand-be.onrender.com/api/v1/docs",
     techStacks: [
       "express",
       "mongodb",
