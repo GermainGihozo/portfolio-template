@@ -84,6 +84,14 @@ import Contact from "../components/Contact.astro";
     pointer-events: none;
     mix-blend-mode: luminosity;
     z-index: -10;
+    animation: bounce1 1s linear infinite alternate;
+  }
+
+  @keyframes bounce1 {
+    50%,
+    55% {
+      transform: translateY(-22%) rotate(-1deg);
+    }
   }
   @media (max-width: 500px) {
     .illustration {
