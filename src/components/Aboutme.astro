@@ -79,6 +79,27 @@
     line-height: 1.1;
   }
 
+  span {
+    position: relative;
+    overflow: hidden;
+
+    &:hover::before {
+      width: 100%;
+      transform: translateX(100%);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 100%;
+      background-color: rgb(255, 255, 255);
+      top: 0;
+      left: 0;
+      transition: 1s;
+    }
+  }
+
   @media (max-width: 780px) {
     article {
       grid-template-columns: auto 20%;
