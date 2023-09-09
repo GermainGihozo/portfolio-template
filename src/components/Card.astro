@@ -22,7 +22,7 @@ const {
     <article>
       {description.map((paragraph) => <p>{paragraph}</p>)}
       <img src={images[0]} />
-      <a class="btn" href={githubLink}>github repository</a>
+      <a class="btn" href={githubLink}>Github repository</a>
     </article>
     <div class="grid">
       <img src={images[1]} />
@@ -87,7 +87,7 @@ const {
 
   .grid {
     display: grid;
-    gap: 0.7rem;
+    align-items: start;
   }
   section {
     margin-block: 4rem;
@@ -100,7 +100,6 @@ const {
   }
 
   article {
-    border-radius: 0.4rem;
     padding: 1.2rem;
     background-color: #ffda6bcd;
   }
@@ -123,7 +122,6 @@ const {
     width: 300px;
     z-index: 3;
     padding: 0.5rem;
-    border-radius: 0.4rem;
     background-color: #ffd;
     color: #000;
     top: 100%;
@@ -135,23 +133,15 @@ const {
     visibility: visible;
   }
 
-  span a::after,
-  span a::after {
-    content: url(/link.svg);
-    margin-left: 0.3rem;
-  }
-
   #techstack span:nth-child(1) {
     margin-left: 0;
   }
   img:not(.logo) {
     width: 100%;
     object-fit: cover;
-    border-radius: 0.4rem;
   }
   @media (max-width: 600px) {
     section > div {
-      text-align: center;
       grid-template-columns: auto;
     }
   }
