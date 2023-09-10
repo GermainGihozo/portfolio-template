@@ -1,31 +1,29 @@
 ---
-import type { projects } from "./projects";
-
-type Props = { project: (typeof projects)[number] };
+import { Image } from "astro:assets";
+import type { projects } from "../project/projects";
 
 const {
-  project: {
-    description,
-    title,
-    techStacks,
-    images,
-    liveWebsite,
-    githubLink,
-    skillsGained,
-  },
-} = Astro.props as Props;
+  title,
+  githubLink,
+  description,
+  skillsGained,
+  liveWebsite,
+  techStacks,
+  image1,
+  image2,
+} = Astro.props as (typeof projects)[number];
 ---
 
 <section>
   <h2 class="underline">{title}</h2>
   <div>
     <article>
-      {description.map((paragraph) => <p>{paragraph}</p>)}
-      <img src={images[0]} />
+      {description?.map((paragraph) => <p>{paragraph}</p>)}
+      <Image src={image1} alt={title} width={400} height={450} format="webp" />
       <a class="btn" href={githubLink}>Github repository</a>
     </article>
     <div class="grid">
-      <img src={images[1]} />
+      <Image src={image1} alt={title} width={400} height={450} format="webp" />
       <p>{skillsGained}</p>
       <h3>Tech stacks</h3>
       <div class="techstack">
@@ -139,6 +137,7 @@ const {
   img:not(.logo) {
     width: 100%;
     object-fit: cover;
+    border-radius: 0.3rem;
   }
   @media (max-width: 600px) {
     section > div {
