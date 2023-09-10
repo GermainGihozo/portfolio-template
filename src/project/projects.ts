@@ -1,3 +1,5 @@
+import Cards from "./images/Cards.png";
+
 export const projects = [
   {
     id: 1,
@@ -6,10 +8,8 @@ export const projects = [
       "This is Restfull API that can help user to purchase products, they can choose the product an pay them with their prefered payment method.  The admin of the app can add new products, remove them and update them.",
       "This app has all major functionalities an e-commerce app needs to serve it's purpose.",
     ],
-    images: [
-      "https://cdn.dribbble.com/userupload/6970046/file/original-c5697e287d243d0fcd9bb89db41ba5e8.png?compress=1&resize=1024x735",
-      "https://cdn.dribbble.com/userupload/6968359/file/original-ef3dc98af34d859ac1e8edb594ace1c0.png?compress=1&resize=1024x768",
-    ],
+    image1: Cards,
+    image2: Cards,
     githubLink: "https://github.com/atlp-rwanda/e-comm-team-axel25-bn",
     liveWebsite: "https://cypherapi.onrender.com/docs/",
     techStacks: [
@@ -30,7 +30,8 @@ export const projects = [
     description: [
       "This is the front-end of above ecommerce API, it has the main features of ecommerce web application like product listing, adding and removing products to cart and payment. adding new product in store and removing them and much more.",
     ],
-    images: ["/Cards.png", "/Home.png"],
+    image1: Cards,
+    image2: Cards,
     githubLink: "https://github.com/atlp-rwanda/e-comm-team-axel25-fe",
     liveWebsite: "https://team-cypher-ecom-main.netlify.app/",
     techStacks: [
@@ -53,10 +54,8 @@ export const projects = [
     description: [
       "User can create and read blog posts, comment on blog posts and like them, they can also like comments. except reading a blog post all other action require user to be registered and loged in.",
     ],
-    images: [
-      "https://cdn.dribbble.com/userupload/6970046/file/original-c5697e287d243d0fcd9bb89db41ba5e8.png?compress=1&resize=1024x735",
-      "https://cdn.dribbble.com/userupload/6968359/file/original-ef3dc98af34d859ac1e8edb594ace1c0.png?compress=1&resize=1024x768",
-    ],
+    image1: Cards,
+    image2: Cards,
     githubLink: "https://github.com/musllim/my_brand_be",
     liveWebsite: "https://my-brand-be.onrender.com/api/v1/docs",
     techStacks: [

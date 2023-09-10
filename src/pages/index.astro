@@ -4,6 +4,8 @@ import Header from "../components/Header.astro";
 import Portfolio from "../components/Portfolio.astro";
 import Aboutme from "../components/Aboutme.astro";
 import Contact from "../components/Contact.astro";
+import image from "../assets/greating.webp";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="Highly organized and detail-oriented programmer and designer.">
@@ -19,7 +21,13 @@ import Contact from "../components/Contact.astro";
       </p>
       <a class="btn" href="#work">My Creative Journey</a>
     </article>
-    <img class="illustration" src="/greating.webp" />
+    <Image
+      class="illustration"
+      src={image}
+      width={200}
+      height={350}
+      alt={"hello"}
+    />
   </main>
   <Portfolio />
   <Aboutme />

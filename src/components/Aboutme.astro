@@ -1,3 +1,8 @@
+---
+import { Image } from "astro:assets";
+import profile from "../assets/muslim.jpeg";
+---
+
 <section id="about">
   <div>
     <h2 class="underline">Who I am!</h2>
@@ -41,7 +46,14 @@
         </p>
         <a href="/resume" class="btn">my resume / CV</a>
       </div>
-      <img src="https://avatars.githubusercontent.com/u/103575700?v=4" />
+      <Image
+        class="image"
+        src={profile}
+        format="webp"
+        width={200}
+        height={250}
+        alt="https://avatars.githubusercontent.com/u/103575700?v=4"
+      />
     </article>
   </div>
 </section>
@@ -64,7 +76,7 @@
     padding: 0;
   }
 
-  img {
+  .image {
     aspect-ratio: 1;
     width: 100%;
     object-fit: cover;
