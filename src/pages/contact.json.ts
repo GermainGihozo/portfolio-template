@@ -21,7 +21,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
       from: email,
       to: "muslimuwitondanishema@gmail.com",
       text: message,
-      subject: message.slice(0, 25),
+      subject: `${email} ${message.slice(0, 25)}`,
     });
 
     return redirect("/", 307);
