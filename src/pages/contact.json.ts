@@ -18,8 +18,8 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     if (!email || !message) return new Response(null, { status: 400 });
 
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: email,
+      from: email,
+      to: "muslimuwitondanishema@gmail.com",
       text: message,
       subject: message.slice(0, 25),
     });
