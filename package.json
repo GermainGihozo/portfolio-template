@@ -11,7 +11,12 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^1.0.3",
+    "@astrojs/netlify": "^3.0.1",
     "astro": "^3.0.12",
+    "nodemailer": "^6.9.5",
     "sass": "^1.66.1"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.10"
   }
 }

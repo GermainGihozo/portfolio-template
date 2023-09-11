@@ -6,7 +6,7 @@
       in working days.
     </p>
 
-    <form action="" method="post">
+    <form action="/contact.json" method="post">
       <div>
         <label for="email"><strong>Email</strong></label>
         <input
@@ -15,7 +15,8 @@
           id="email"
           required
           minlength="7"
-          maxlength="25"
+          maxlength="55"
+          placeholder="uwi@soft.job 🚀"
         />
       </div>
       <div>
@@ -25,7 +26,8 @@
           id="message"
           required
           minlength="20"
-          maxlength="700"></textarea>
+          maxlength="700"
+          placeholder="job offer 🚀"></textarea>
       </div>
       <button>send message</button>
     </form>
