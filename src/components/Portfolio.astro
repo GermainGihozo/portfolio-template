@@ -3,7 +3,7 @@ import Card from "./Card.astro";
 import { projects } from "../project/projects";
 ---
 
-<section>
+<section id="work">
   <h2>Crafting Digital Experiences</h2>
   <p>
     I specialize in creating cohesive, efficient, and effective web applications
@@ -21,6 +21,9 @@ import { projects } from "../project/projects";
     line-height: 1.1;
   }
 
+  #work {
+    padding-top: 3rem;
+  }
   @media (max-width: 600px) {
     section {
       text-align: center;

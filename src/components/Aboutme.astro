@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import profile from "../assets/muslim.jpeg";
+const skills = ['figma','adobe XD','adobe illustrator','inkscape','HTML/CSS','bootstrap','tailwindCSS','Sass','javascript','typescript','reactjs','redux','zustand','jest','nodejs','express','nextjs','mocha','java','PHP','c/c++','python','solidity','mysql','postgresql','mongodb','docker','git','linux server']
 ---
 
 <section id="about">
@@ -29,20 +30,7 @@ import profile from "../assets/muslim.jpeg";
         </p>
         <h3>Skills</h3>
         <p>
-          <span>figma</span><span>adobe XD</span><span>adobe illustrator</span
-          ><span>inkscape</span><span>HTML/CSS</span><span>bootstrap</span><span
-            >tailwindCSS</span
-          ><span>Sass</span><span>javascript</span><span>typescript</span><span
-            >reactjs</span
-          ><span>redux</span><span>zustand</span><span>jest</span><span
-            >nodejs</span
-          ><span>express</span><span>nextjs</span><span>mocha</span><span
-            >java</span
-          ><span>modern PHP</span><span>c/c++</span><span>mysql</span><span
-            >postgresql</span
-          ><span>mongodb</span><span>docker</span><span>git</span><span
-            >linux server</span
-          >
+          {skills.map(skill=><span>{skill}</span>)}
         </p>
         <a href="/resume" class="btn">my resume / CV</a>
       </div>
