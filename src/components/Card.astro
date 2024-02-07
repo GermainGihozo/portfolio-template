@@ -55,6 +55,7 @@ const {
   });
 </script>
 <style lang="scss">
+  @import '../css/color';
   section {
     & article,
     & .grid {
@@ -99,7 +100,7 @@ const {
 
   article {
     padding: 1.2rem;
-    background-color: #ffda6bcd;
+    background-color: lighten($bg-color, 100%);
   }
   article > * {
     margin-block: 0.5rem;
@@ -113,24 +114,7 @@ const {
   span a {
     position: relative;
   }
-  span a::before,
-  span a::before {
-    position: absolute;
-    content: attr(data-link);
-    width: 300px;
-    z-index: 3;
-    padding: 0.5rem;
-    background-color: #ffd;
-    color: #000;
-    top: 100%;
-    visibility: hidden;
-  }
-
-  span a:hover::before,
-  span a:hover::before {
-    visibility: visible;
-  }
-
+  
   #techstack span:nth-child(1) {
     margin-left: 0;
   }
