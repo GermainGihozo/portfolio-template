@@ -6,7 +6,7 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -24,17 +24,19 @@ const { title } = Astro.props;
   </body>
 </html>
 <style is:global lang="scss">
+  @import "../css/color";
+
   html {
     font-family: system-ui, sans-serif;
-    background-color: #ffbf00;
-    color: #574100;
+    color: $txt-color;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
   }
 
   ::selection {
-    background-color: #c09000;
-    color: white;
+    background-color: $txt-color;
+    color: $bg-color;
   }
 
   body {
@@ -51,23 +53,23 @@ const { title } = Astro.props;
 
   button,
   .btn {
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
     cursor: pointer;
-    transition: background-color 300ms;
-    background-color: #725600;
-    color: #fbe296;
+    transition: transform 300ms;
+    background-color: #dcd9d4;
+    background-blend-mode: soft-light, screen;
+    color: darken($txt-color, 100%);
     max-width: fit-content;
     text-decoration: none;
     display: block;
   }
   button:hover,
   .btn:hover {
-    transform: scale(1.02);
-    background-color: #a17900;
+    transform: translateY(-5%);
   }
   button:focus,
   button:focus-visible {
@@ -88,7 +90,7 @@ const { title } = Astro.props;
   }
   a,
   button {
-    outline-color: #f8dd8dc8;
+    outline-color: lighten($txt-color, 60%);
   }
 
   .underline {
@@ -109,7 +111,7 @@ const { title } = Astro.props;
   .underline::before {
     width: 5%;
     height: 1rem;
-    background-color: rgba(255, 255, 255, 0.435);
+    background-color: white;
     top: 50%;
     left: 0;
     transform: translate(-50%, -120%);
@@ -123,13 +125,18 @@ const { title } = Astro.props;
   span,
   input,
   textarea {
-    border: 1px solid transparent;
     padding: 0.2em 0.6em;
     font-size: 0.8em;
-    background-color: #f8dd8d;
+    background-color: white;
     display: inline-block;
+    border: none;
+
+    &:focus {
+      outline: #dcd9d4;
+    }
   }
   span {
+    background-color: lighten($bg-color, 100%);
     margin-right: 0.2rem;
     margin-bottom: 0.2rem;
   }
