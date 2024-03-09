@@ -20,7 +20,7 @@ const {
     <article>
       {description?.map((paragraph) => <p>{paragraph}</p>)}
       <Image src={image1} alt={title} width={400} height={450} format="webp" />
-      <a class="btn" href={githubLink}>Github repository</a>
+      <a target="_blank" class="btn" href={githubLink}>Github repository</a>
     </article>
     <div class="grid">
       <Image src={image1} alt={title} width={400} height={450} format="webp" />
@@ -29,7 +29,7 @@ const {
       <div class="techstack">
         {techStacks.map((s) => <span>{s}</span>)}
       </div>
-      <a class="btn" href={liveWebsite}>view live website</a>
+      <a target="_blank" class="btn" href={liveWebsite}>view live website</a>
     </div>
   </div>
 </section>
