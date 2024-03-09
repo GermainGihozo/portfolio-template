@@ -1,4 +1,4 @@
-import Cards from "./images/Cards.png";
+const Cards ="/Cards.png";
 
 export const projects = [
   {

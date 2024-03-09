@@ -4,7 +4,6 @@ import Header from "../components/Header.astro";
 import Portfolio from "../components/Portfolio.astro";
 import Aboutme from "../components/Aboutme.astro";
 import Contact from "../components/Contact.astro";
-import image from "../assets/greating.webp";
 import { Image } from "astro:assets";
 ---
 
@@ -23,7 +22,7 @@ import { Image } from "astro:assets";
     </article>
     <Image
       class="illustration"
-      src={image}
+      src='/greating.webp'
       width={200}
       height={206}
       alt="hello, my name is Muslim"
