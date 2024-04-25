@@ -15,5 +15,5 @@ export const projects = [
     ],
     skillsGained:
       "Created an interactive dashboard leveraging labor force survey data to tackle the pressing issue of youth unemployment in Rwanda.",
-  },
+  }
 ];
